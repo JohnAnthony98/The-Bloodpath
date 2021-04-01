@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float dash_force;
-    private float sg_force;
+    public float sg_force;
     private bool moveable;
     private float move_time;
     private float move_cooldown;
@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         dash_force = 7.195f;
-        sg_force = 2f;
+        sg_force = 5f;
         moveable = true;
         move_cooldown = 0.5f;
         rbody = GetComponent<Rigidbody>();
@@ -114,6 +114,69 @@ public class PlayerController : MonoBehaviour
             {
                 rbody.velocity = new Vector3(0, 0, 0);
                 rbody.AddForce(dash_force * BodyFacing, 0, 0, ForceMode.Impulse);
+                moveable = false;
+                move_time = Time.time;
+            }
+        }
+        if (Input.GetKey("l"))
+        {
+            /*Debug.Log("Dash");
+            moveable = false;
+            move_time = Time.time;*/
+            if (Input.GetKey("w"))
+            {
+                //jumping
+                if (Input.GetKey("a"))
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(sg_force * 1, sg_force * -1, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+                else if (Input.GetKey("d"))
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(sg_force * -1, sg_force * -1, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+                else
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(0, sg_force * -1, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+            }
+            else if (Input.GetKey("s"))
+            {
+                //jumping
+                if (Input.GetKey("a"))
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(sg_force * 1, sg_force, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+                else if (Input.GetKey("d"))
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(sg_force * -1, sg_force, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+                else
+                {
+                    rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.AddForce(0, sg_force, 0, ForceMode.Impulse);
+                    moveable = false;
+                    move_time = Time.time;
+                }
+            }
+            else
+            {
+                rbody.velocity = new Vector3(0, 0, 0);
+                rbody.AddForce(sg_force * BodyFacing * -1, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
             }
