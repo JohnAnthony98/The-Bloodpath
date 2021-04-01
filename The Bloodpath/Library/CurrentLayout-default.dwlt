@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,8 +45,13 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
+<<<<<<< HEAD
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
+=======
+  m_MinSize: {x: 677, y: 492}
+  m_MaxSize: {x: 14001, y: 14042}
+>>>>>>> PlayerController
   vertical: 0
   controlID: 120
 --- !u!114 &3
@@ -68,8 +73,13 @@ MonoBehaviour:
     y: 0
     width: 390
     height: 947
+<<<<<<< HEAD
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> PlayerController
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -95,8 +105,13 @@ MonoBehaviour:
     y: 0
     width: 379
     height: 573
+<<<<<<< HEAD
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> PlayerController
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -151,7 +166,11 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
+<<<<<<< HEAD
   m_MinSize: {x: 875, y: 300}
+=======
+  m_MinSize: {x: 875, y: 542}
+>>>>>>> PlayerController
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -217,10 +236,17 @@ MonoBehaviour:
     y: 0
     width: 1530
     height: 947
+<<<<<<< HEAD
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
   controlID: 54
+=======
+  m_MinSize: {x: 402, y: 492}
+  m_MaxSize: {x: 10001, y: 14042}
+  vertical: 1
+  controlID: 15
+>>>>>>> PlayerController
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,10 +268,17 @@ MonoBehaviour:
     y: 0
     width: 1530
     height: 573
+<<<<<<< HEAD
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
   controlID: 55
+=======
+  m_MinSize: {x: 402, y: 221}
+  m_MaxSize: {x: 8002, y: 4021}
+  vertical: 0
+  controlID: 16
+>>>>>>> PlayerController
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -383,9 +416,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 6e330000
     m_LastClickedID: 13166
     m_ExpandedIDs: 000000006e3300007433000000ca9a3b
+=======
+    m_SelectedIDs: 2e3e0000
+    m_LastClickedID: 15918
+    m_ExpandedIDs: 000000002e3e000000ca9a3b
+>>>>>>> PlayerController
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Prefabs
@@ -413,7 +452,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000006e330000
+=======
+    m_ExpandedIDs: 
+>>>>>>> PlayerController
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -536,9 +579,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 74330000
       m_LastClickedID: 0
       m_ExpandedIDs: b2f5ffffd2f5ffffb8f6ffff72f7ffffa4faffff6cfbffff00000000
+=======
+      m_SelectedIDs: e6edffff
+      m_LastClickedID: -4634
+      m_ExpandedIDs: f8edffff
+>>>>>>> PlayerController
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -598,9 +647,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -0.59156084, y: -3.3114452, z: 22.654873}
     speed: 2
     m_Value: {x: -0.59156084, y: -3.3114452, z: 22.654873}
+=======
+    m_Target: {x: 0, y: 0, z: 0}
+    speed: 2
+    m_Value: {x: 0, y: 0, z: 0}
+>>>>>>> PlayerController
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -646,6 +701,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.10809746, y: -0.0038798752, z: 0.00042397832, w: -0.99413675}
     speed: 2
     m_Value: {x: -0.10809702, y: -0.0038798593, z: 0.0004239766, w: -0.9941327}
@@ -653,6 +709,15 @@ MonoBehaviour:
     m_Target: 17.99906
     speed: 2
     m_Value: 17.99906
+=======
+    m_Target: {x: -0.20981982, y: -0.4276534, z: 0.102756664, w: -0.8732312}
+    speed: 2
+    m_Value: {x: -0.20981948, y: -0.4276527, z: 0.10275649, w: -0.87322974}
+  m_Size:
+    m_Target: 7.8029985
+    speed: 2
+    m_Value: 7.8029985
+>>>>>>> PlayerController
   m_Ortho:
     m_Target: 0
     speed: 2
