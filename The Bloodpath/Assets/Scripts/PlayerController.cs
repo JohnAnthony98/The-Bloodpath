@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     private float move_time;
     private float move_cooldown;
     private Rigidbody rbody;
-    private int BodyFacing;
+    private Vector2 BodyFacing;
+
+    private GameObject dashPreFab;
 
 
     // Start is called before the first frame update
@@ -21,7 +23,9 @@ public class PlayerController : MonoBehaviour
         moveable = true;
         move_cooldown = 0.5f;
         rbody = GetComponent<Rigidbody>();
-        BodyFacing = 1;
+        BodyFacing = new Vector2(1, 0);
+
+        dashPreFab = Resources.Load("PreFabs/DashAttack") as GameObject;
     }
 
     // Update is called once per frame
@@ -45,16 +49,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey("a"))
         {
-            BodyFacing = -1;
+            BodyFacing.x = -1;
         }
         else if (Input.GetKey("d"))
         {
-            BodyFacing = 1;
+            BodyFacing.x = 1;
         }
     }
 
     private void Move()
     {
+        GameObject attack;
         if (Input.GetKey("k"))
         {
             /*Debug.Log("Dash");
@@ -69,6 +74,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * -1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(-1, 1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d"))
                 {
@@ -76,6 +83,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * 1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(1, 1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else
                 {
@@ -83,6 +92,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(0, 1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
             else if (Input.GetKey("s"))
@@ -94,6 +105,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * -1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(-1, -1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d"))
                 {
@@ -101,6 +114,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * 1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(1, -1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else
                 {
@@ -108,14 +123,18 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(0, -1);
+                    attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
             else
             {
                 rbody.velocity = new Vector3(0, 0, 0);
-                rbody.AddForce(dash_force * BodyFacing, 0, 0, ForceMode.Impulse);
+                rbody.AddForce(dash_force * BodyFacing.x, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
+                BodyFacing.y = 0;
+                attack = Instantiate(dashPreFab) as GameObject;
             }
         }
         if (Input.GetKey("l"))
@@ -176,10 +195,15 @@ public class PlayerController : MonoBehaviour
             else
             {
                 rbody.velocity = new Vector3(0, 0, 0);
-                rbody.AddForce(sg_force * BodyFacing * -1, 0, 0, ForceMode.Impulse);
+                rbody.AddForce(sg_force * BodyFacing.x * -1, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
             }
         }
+    }
+
+    public Vector2 GetFacing()
+    {
+        return BodyFacing;
     }
 }
