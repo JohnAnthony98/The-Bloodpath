@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-0.5915608406066895,"y":-3.3114452362060549,"z":22.65487289428711},"rotation":{"x":-0.10809745639562607,"y":-0.0038798751775175335,"z":0.00042397831566631794,"w":-0.9941367506980896},"size":17.999059677124025,"orthographic":false}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-1.7583271265029908,"y":2.581885576248169,"z":-1.1589221954345704},"rotation":{"x":-0.01830746978521347,"y":-0.009901502169668675,"z":0.00018039678980130702,"w":-0.9997866153717041},"size":6.081247329711914,"orthographic":false}
->>>>>>> PlayerController
