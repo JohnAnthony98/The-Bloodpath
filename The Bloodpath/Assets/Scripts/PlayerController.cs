@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 BodyFacing;
 
     private GameObject dashPreFab;
+    private GameObject shotgunPreFab;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         BodyFacing = new Vector2(1, 0);
 
         dashPreFab = Resources.Load("PreFabs/DashAttack") as GameObject;
+        shotgunPreFab = Resources.Load("PreFabs/ShotgunBlast") as GameObject;
     }
 
     // Update is called once per frame
@@ -151,6 +153,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(sg_force * 1, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(-1, 1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d"))
                 {
@@ -158,6 +162,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(sg_force * -1, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(1, 1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
                 else
                 {
@@ -165,6 +171,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(0, 1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
             }
             else if (Input.GetKey("s"))
@@ -176,6 +184,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(sg_force * 1, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(-1, -1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d"))
                 {
@@ -183,6 +193,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(sg_force * -1, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(1, -1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
                 else
                 {
@@ -190,6 +202,8 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
+                    BodyFacing = new Vector2(0, -1);
+                    attack = Instantiate(shotgunPreFab) as GameObject;
                 }
             }
             else
@@ -198,6 +212,8 @@ public class PlayerController : MonoBehaviour
                 rbody.AddForce(sg_force * BodyFacing.x * -1, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
+                BodyFacing.y = 0;
+                attack = Instantiate(shotgunPreFab) as GameObject;
             }
         }
     }
