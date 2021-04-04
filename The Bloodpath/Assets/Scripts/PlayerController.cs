@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float dash_force;
     public float sg_force;
+    public float deathBarrier = -20;
     private bool moveable;
     private float move_time;
     private float move_cooldown;
@@ -33,6 +34,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
+        //right now, that checkpoint is just 0, 0, 0, but later we'll implement a real checkpoint system
+        if (transform.position.y < deathBarrier)
+        {
+            transform.position = new Vector3(0, 0, 0);
+        }
+
         Facing();
         if (moveable)
         {
