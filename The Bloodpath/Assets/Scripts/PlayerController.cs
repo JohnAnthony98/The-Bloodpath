@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         checkpoint = transform.position;
-        dash_force = 4f;
-        sg_force = 2f;
+        dash_force = 8f;
+        sg_force = 4f;
         moveable = true;
-        move_cooldown = 0.5f;
+        move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
         BodyFacing = new Vector2(1, 0);
         onGround = true;

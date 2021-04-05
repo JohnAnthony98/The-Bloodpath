@@ -13,7 +13,7 @@ public class DashAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackTime = 0.5f;
+        attackTime = 0.25f;
         startTime = Time.time;
 
         player = GameObject.FindGameObjectWithTag("Player");
