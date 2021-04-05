@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float move_cooldown;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
+    private Vector3 checkpoint;
 
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        checkpoint = transform.position;
         dash_force = 7.195f;
         sg_force = 5f;
         moveable = true;
@@ -35,10 +37,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
-        //right now, that checkpoint is just 0, 0, 0, but later we'll implement a real checkpoint system
         if (transform.position.y < deathBarrier)
         {
-            transform.position = new Vector3(0, 0, 0);
+            Respawn();
         }
 
         Facing();
@@ -53,6 +54,20 @@ public class PlayerController : MonoBehaviour
                 moveable = true;
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if the player crosses a checkpoint, update the checkpoint variable, so the player respawns there upon death
+        if (other.gameObject.CompareTag("checkpoint"))
+        {
+            checkpoint = other.gameObject.transform.position;
+        }
+    }
+
+    private void Respawn()
+    {
+        transform.position = checkpoint;
     }
 
     private void Facing()
