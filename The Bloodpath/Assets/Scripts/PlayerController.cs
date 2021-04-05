@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private bool moveable;
     private float move_time;
     private float move_cooldown;
+    private int maxMoves;
+    private int movesLeft;
+    private bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
@@ -21,13 +24,22 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream
         checkpoint = transform.position;
         dash_force = 7.195f;
         sg_force = 5f;
+=======
+        dash_force = 4f;
+        sg_force = 2f;
+>>>>>>> Stashed changes
         moveable = true;
         move_cooldown = 0.5f;
         rbody = GetComponent<Rigidbody>();
         BodyFacing = new Vector2(1, 0);
+        onGround = true;
+
+        maxMoves = 2;
+        movesLeft = maxMoves;
 
         dashPreFab = Resources.Load("PreFabs/DashAttack") as GameObject;
         shotgunPreFab = Resources.Load("PreFabs/ShotgunBlast") as GameObject;
@@ -52,6 +64,12 @@ public class PlayerController : MonoBehaviour
             if(Time.time - move_time >= move_cooldown)
             {
                 moveable = true;
+                rbody.velocity = new Vector3(0, 0, 0);
+                rbody.useGravity = true;
+                if(onGround == true)
+                {
+                    ResetMoves();
+                }
             }
         }
     }
@@ -84,6 +102,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if(movesLeft <= 0)
+        {
+            return;
+        }
         GameObject attack;
         if (Input.GetKey("k"))
         {
@@ -96,6 +118,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey("a"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(dash_force * -1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -105,6 +128,7 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetKey("d"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(dash_force * 1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -114,6 +138,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(0, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -127,6 +152,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey("a"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(dash_force * -1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -136,6 +162,7 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetKey("d"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(dash_force * 1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -145,6 +172,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(0, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -155,12 +183,14 @@ public class PlayerController : MonoBehaviour
             else
             {
                 rbody.velocity = new Vector3(0, 0, 0);
+                rbody.useGravity = false;
                 rbody.AddForce(dash_force * BodyFacing.x, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
                 BodyFacing.y = 0;
                 attack = Instantiate(dashPreFab) as GameObject;
             }
+            movesLeft--;
         }
         if (Input.GetKey("l"))
         {
@@ -173,6 +203,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey("a"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(sg_force * 1, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -182,6 +213,7 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetKey("d"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(sg_force * -1, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -191,6 +223,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(0, sg_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -204,6 +237,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKey("a"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(sg_force * 1, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -213,6 +247,7 @@ public class PlayerController : MonoBehaviour
                 else if (Input.GetKey("d"))
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(sg_force * -1, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -222,6 +257,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
+                    rbody.useGravity = false;
                     rbody.AddForce(0, sg_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
@@ -232,17 +268,41 @@ public class PlayerController : MonoBehaviour
             else
             {
                 rbody.velocity = new Vector3(0, 0, 0);
+                rbody.useGravity = false;
                 rbody.AddForce(sg_force * BodyFacing.x * -1, 0, 0, ForceMode.Impulse);
                 moveable = false;
                 move_time = Time.time;
                 BodyFacing.y = 0;
                 attack = Instantiate(shotgunPreFab) as GameObject;
             }
+            movesLeft--;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            ResetMoves();
+            onGround = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            onGround = false;
         }
     }
 
     public Vector2 GetFacing()
     {
         return BodyFacing;
+    }
+
+    public void ResetMoves()
+    {
+        movesLeft = maxMoves;
     }
 }

@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerAttack
+<<<<<<< Updated upstream
   - checkpoint
+=======
+  - ground
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
