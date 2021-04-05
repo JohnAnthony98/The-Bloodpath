@@ -24,14 +24,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-<<<<<<< Updated upstream
         checkpoint = transform.position;
-        dash_force = 7.195f;
-        sg_force = 5f;
-=======
         dash_force = 4f;
         sg_force = 2f;
->>>>>>> Stashed changes
         moveable = true;
         move_cooldown = 0.5f;
         rbody = GetComponent<Rigidbody>();
