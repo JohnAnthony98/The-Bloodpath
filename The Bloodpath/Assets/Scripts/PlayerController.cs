@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     private bool moveable;
     private float move_time;
     private float move_cooldown;
-    private int maxMoves;
-    private int movesLeft;
+    private int maxDashes;
+    private int dashesLeft;
+    private int maxBlasts;
+    private int blastsLeft;
     private bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
@@ -33,8 +35,10 @@ public class PlayerController : MonoBehaviour
         BodyFacing = new Vector2(1, 0);
         onGround = true;
 
-        maxMoves = 2;
-        movesLeft = maxMoves;
+        maxDashes = 2;
+        dashesLeft = maxDashes;
+        maxBlasts = 1;
+        blastsLeft = maxBlasts;
 
         dashPreFab = Resources.Load("PreFabs/DashAttack") as GameObject;
         shotgunPreFab = Resources.Load("PreFabs/ShotgunBlast") as GameObject;
@@ -97,12 +101,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if(movesLeft <= 0)
-        {
-            return;
-        }
         GameObject attack;
-        if (Input.GetKey("k"))
+        if (Input.GetKey("k") && dashesLeft > 0)
         {
             /*Debug.Log("Dash");
             moveable = false;
@@ -185,9 +185,9 @@ public class PlayerController : MonoBehaviour
                 BodyFacing.y = 0;
                 attack = Instantiate(dashPreFab) as GameObject;
             }
-            movesLeft--;
+            dashesLeft--;
         }
-        if (Input.GetKey("l"))
+        if (Input.GetKey("l") && blastsLeft > 0)
         {
             /*Debug.Log("Dash");
             moveable = false;
@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
                 BodyFacing.y = 0;
                 attack = Instantiate(shotgunPreFab) as GameObject;
             }
-            movesLeft--;
+            blastsLeft--;
         }
     }
 
@@ -298,6 +298,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetMoves()
     {
-        movesLeft = maxMoves;
+        dashesLeft = maxDashes;
+        blastsLeft = maxBlasts;
     }
 }
