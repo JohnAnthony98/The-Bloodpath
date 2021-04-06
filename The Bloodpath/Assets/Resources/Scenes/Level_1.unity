@@ -2382,7 +2382,7 @@ GameObject:
   - component: {fileID: 951067825}
   m_Layer: 0
   m_Name: Cube (11)
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3666,7 +3666,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7fd60e79d1c2f4f97a5745b7036446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sg_force: 0
+  dash_force: 12
+  sg_force: 8
   deathBarrier: -20
 --- !u!54 &1408381433
 Rigidbody:
