@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float dash_force;
+    public float dash_force;
     public float sg_force;
     public float deathBarrier = -20;
     private bool moveable;
