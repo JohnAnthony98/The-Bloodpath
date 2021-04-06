@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float dash_force;
-    public float sg_force;
-    public float deathBarrier = -20;
+    private float sg_force;
+    private float deathBarrier = -20;
     private bool moveable;
     private float move_time;
     private float move_cooldown;
