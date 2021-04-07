@@ -80,6 +80,12 @@ public class PlayerController : MonoBehaviour
         {
             checkpoint = other.gameObject.transform.position;
         }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            GameController.gameController.PlayerWins();
+            Destroy(other.gameObject);
+        }
+
     }
 
     private void Respawn()

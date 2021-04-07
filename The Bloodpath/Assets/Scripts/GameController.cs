@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject controllerObject;
     public GameObject pauseMenu;
     public GameObject mainMenu;
+    public GameObject youWin;
     private bool paused;
 
     void Awake()
@@ -27,8 +28,6 @@ public class GameController : MonoBehaviour
             gameController = this;
         }
         DontDestroyOnLoad(this);
-        //DontDestroyOnLoad(pauseMenu);
-        //DontDestroyOnLoad(mainMenu);
 
         if (pauseMenu == null)
         {
@@ -37,6 +36,8 @@ public class GameController : MonoBehaviour
         }
         pauseMenu.SetActive(false);
         paused = false;
+
+        youWin.SetActive(false);
 
         if (mainMenu == null)
         {
@@ -53,7 +54,7 @@ public class GameController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Debug.Log("Escape Pressed");
+                //Debug.Log("Escape Pressed");
                 paused = true;
                 pauseMenu.SetActive(true);
                 Time.timeScale = 0f;
@@ -72,12 +73,13 @@ public class GameController : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
+        youWin.SetActive(false);
         SceneManager.LoadScene(0);
     }
 
     public void StartGame()
     {
-        Debug.Log("Start Button Pressed");
+        //Debug.Log("Start Button Pressed");
         if (SceneManager.GetActiveScene().buildIndex == 0) // Main Menu
         {
             mainMenu.SetActive(false);
@@ -91,7 +93,7 @@ public class GameController : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quit Button Pressed");
+        //Debug.Log("Quit Button Pressed");
 
         Application.Quit();
     }
@@ -99,6 +101,11 @@ public class GameController : MonoBehaviour
     public bool GamePaused()
     {
         return paused;
+    }
+
+    public void PlayerWins()
+    {
+        youWin.SetActive(true);
     }
 
     private void OnDestroy()
