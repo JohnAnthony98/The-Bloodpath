@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         checkpoint = transform.position;
-        dash_force = 8f;
-        sg_force = 4f;
+        dash_force = 12f;
+        sg_force = 6f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
