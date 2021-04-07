@@ -101,6 +101,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (GameController.gameController.GamePaused())
+        {
+            return;
+        }
         GameObject attack;
         if (Input.GetKey("k") && dashesLeft > 0)
         {
