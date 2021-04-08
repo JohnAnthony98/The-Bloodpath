@@ -11,6 +11,7 @@ public class GroundEnemy : MonoBehaviour
     private Vector3 leftBound;
     private float travelTime;
     private float startTime;
+    private float speed;
 
     private GameObject moveCheckerPreFab;
     private GameObject moveChecker;
@@ -23,6 +24,7 @@ public class GroundEnemy : MonoBehaviour
         findingRightBound = false;
         findingLeftBound = false;
         moveCheckerPreFab = Resources.Load("PreFabs/Enemies/GroundEnemyMoveChecker") as GameObject;
+        speed = 0.05f;
     }
 
     // Update is called once per frame
@@ -42,26 +44,16 @@ public class GroundEnemy : MonoBehaviour
         {
             //move right
             Vector3 newPos = transform.position;
-            newPos.x += 0.2f;
+            newPos.x += speed;
             transform.position = newPos;
         }
         else if (findingLeftBound)
         {
             //move left
             Vector3 newPos = transform.position;
-            newPos.x -= 0.2f;
+            newPos.x -= speed;
             transform.position = newPos;
             startTime = Time.time;
-        }
-        else
-        {
-            //move between two bounds
-            float u = (Mathf.Sin(Time.time - startTime - (Mathf.PI/2)) + 1)  / 2;
-            
-
-
-            Vector3 newPos = (1 - u) * leftBound + u * rightBound;
-            this.gameObject.transform.position = newPos;
         }
     }
 
@@ -69,14 +61,13 @@ public class GroundEnemy : MonoBehaviour
     {
         if (findingRightBound)
         {
-            rightBound = transform.position;
             findingRightBound = false;
             findingLeftBound = true;
         }
         else if (findingLeftBound)
         {
-            leftBound = transform.position;
             findingLeftBound = false;
+            findingRightBound = true;
         }
     }
 
@@ -93,6 +84,11 @@ public class GroundEnemy : MonoBehaviour
                 return;
             }
         }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            SetBound();
+            moveChecker.GetComponent<GroundEnemyMoveChecker>().SwapBound();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -107,6 +103,7 @@ public class GroundEnemy : MonoBehaviour
 
     private void OnDestroy()
     {
+        Destroy(moveChecker);
         Destroy(this.gameObject);
     }
 }

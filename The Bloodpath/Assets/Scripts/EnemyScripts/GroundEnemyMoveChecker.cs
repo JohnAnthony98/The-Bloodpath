@@ -53,20 +53,26 @@ public class GroundEnemyMoveChecker : MonoBehaviour
         attatchedEnemy = enemy;
     }
 
-    private void OnCollisionExit(Collision collision)
+    public void SwapBound()
     {
-        if (collision.gameObject.CompareTag("ground"))
+        if (findingRightBound)
+        {
+            findingRightBound = false;
+            findingLeftBound = true;
+        }
+        else
+        {
+            findingRightBound = true;
+            findingLeftBound = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("ground"))
         {
             attatchedEnemy.GetComponent<GroundEnemy>().SetBound();
-            if (findingRightBound)
-            {
-                findingRightBound = false;
-                findingLeftBound = true;
-            }
-            else
-            {
-                Destroy(this);
-            }
+            SwapBound();
         }
     }
 
