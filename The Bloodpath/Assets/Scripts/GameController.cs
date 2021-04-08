@@ -83,6 +83,8 @@ public class GameController : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0) // Main Menu
         {
             mainMenu.SetActive(false);
+            paused = false;
+            Time.timeScale = 1f;
             SceneManager.LoadScene(1);
         }
         else
