@@ -17,7 +17,7 @@ public class DashAttack : MonoBehaviour
         startTime = Time.time;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 playerDir = player.GetComponent<PlayerController>().GetFacing();
+        Vector2 playerDir = player.GetComponent<PlayerTesting>().GetFacing();
 
         //figure out placement and direction of attack based on player direction
         if(playerDir.y == 1)//Attack upwards
