@@ -6,7 +6,7 @@ public class FlyingEnemy : MonoBehaviour
 {
     public bool findingTopBound;
     public bool findingBottomBound;
-    private float speed;
+    public float speed;
 
     private Vector3 orgin;
     private Vector3 topBound;
@@ -19,7 +19,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         findingTopBound = false;
         findingBottomBound = true;
-        speed = 0.05f;
+        speed = 0.025f;
         range = 1f;
 
         orgin = transform.position;
@@ -105,7 +105,7 @@ public class FlyingEnemy : MonoBehaviour
         {
             Destroy(this);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<PlayerTesting>().ResetMoves();
+            player.GetComponent<PlayerController>().ResetMoves();
         }
     }
 

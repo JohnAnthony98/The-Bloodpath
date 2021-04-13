@@ -23,7 +23,7 @@ public class ShotgunAttack : MonoBehaviour
         range = 1f;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 playerDir = player.GetComponent<PlayerTesting>().GetFacing();
+        Vector2 playerDir = player.GetComponent<PlayerController>().GetFacing();
 
         Vector3 newPos = player.transform.position;
 

@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &552229752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -501,9 +501,9 @@ GameObject:
   - component: {fileID: 1388358966}
   - component: {fileID: 1388358965}
   - component: {fileID: 1388358964}
+  - component: {fileID: 1388358961}
   - component: {fileID: 1388358963}
   - component: {fileID: 1388358962}
-  - component: {fileID: 1388358961}
   m_Layer: 0
   m_Name: man
   m_TagString: Player
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1388358960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94aaa8c021faf946af82d41a04996d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b7fd60e79d1c2f4f97a5745b7036446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1388358962
@@ -808,6 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   findingTopBound: 0
   findingBottomBound: 0
+  speed: 0
 --- !u!4 &8800752212973085046
 Transform:
   m_ObjectHideFlags: 0

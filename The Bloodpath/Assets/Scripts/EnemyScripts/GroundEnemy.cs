@@ -97,7 +97,7 @@ public class GroundEnemy : MonoBehaviour
         {
             Destroy(this);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<PlayerTesting>().ResetMoves();
+            player.GetComponent<PlayerController>().ResetMoves();
         }
     }
 
