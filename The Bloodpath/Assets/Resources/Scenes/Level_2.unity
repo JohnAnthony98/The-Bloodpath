@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 60790060}
   m_Layer: 0
   m_Name: Pillar (46)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1139,7 +1139,7 @@ GameObject:
   - component: {fileID: 181100764}
   m_Layer: 0
   m_Name: Pillar (43)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1512,7 +1512,7 @@ GameObject:
   - component: {fileID: 232296588}
   m_Layer: 0
   m_Name: Pillar (41)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2100,7 +2100,7 @@ GameObject:
   - component: {fileID: 392933235}
   m_Layer: 0
   m_Name: Pillar (45)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2223,7 +2223,7 @@ GameObject:
   - component: {fileID: 420338796}
   m_Layer: 0
   m_Name: Pillar (33)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2875,7 +2875,7 @@ GameObject:
   - component: {fileID: 615701258}
   m_Layer: 0
   m_Name: Pillar (38)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2948,8 +2948,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615701257}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -54.059097, y: -7.163137, z: 4.2890625}
-  m_LocalScale: {x: 4.598295, y: 15.623436, z: 1}
+  m_LocalPosition: {x: -56.445, y: -9.277, z: 4.2890625}
+  m_LocalScale: {x: 3.5171018, y: 11.395956, z: 1}
   m_Children: []
   m_Father: {fileID: 116353077}
   m_RootOrder: 3
@@ -3598,7 +3598,7 @@ GameObject:
   - component: {fileID: 906839126}
   m_Layer: 0
   m_Name: Pillar (35)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3671,8 +3671,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906839125}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -62.5851, y: -9.022137, z: 4.2890625}
-  m_LocalScale: {x: 3.2441914, y: 4.7785783, z: 0.90239}
+  m_LocalPosition: {x: -62.967, y: -10.633, z: 4.2890625}
+  m_LocalScale: {x: 2.4813874, y: 3.485563, z: 0.90239}
   m_Children: []
   m_Father: {fileID: 116353077}
   m_RootOrder: 0
@@ -3764,8 +3764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946211118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.606522, y: 0.709661, z: 3.2578125}
-  m_LocalScale: {x: 12.819667, y: 13.818746, z: 1}
+  m_LocalPosition: {x: 25.145, y: -0.931, z: 3.2578125}
+  m_LocalScale: {x: 10.751239, y: 10.537849, z: 1}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 14
@@ -4015,7 +4015,7 @@ GameObject:
   - component: {fileID: 992883083}
   m_Layer: 0
   m_Name: Pillar (34)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4388,7 +4388,7 @@ GameObject:
   - component: {fileID: 1080571755}
   m_Layer: 0
   m_Name: Pillar (47)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4481,7 +4481,7 @@ GameObject:
   - component: {fileID: 1096958722}
   m_Layer: 0
   m_Name: Pillar (39)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5396,7 +5396,7 @@ GameObject:
   - component: {fileID: 1261724220}
   m_Layer: 0
   m_Name: Pillar (40)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6291,7 +6291,7 @@ GameObject:
   - component: {fileID: 1472497168}
   m_Layer: 0
   m_Name: Pillar (32)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6364,8 +6364,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472497167}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.112518, y: 4.009661, z: 3.2578125}
-  m_LocalScale: {x: 1.9224362, y: 2.1350756, z: 0.90239}
+  m_LocalPosition: {x: 7.957, y: 1.586, z: 3.2578125}
+  m_LocalScale: {x: 1.6122549, y: 1.6281582, z: 0.90239}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 17
@@ -6477,7 +6477,7 @@ GameObject:
   - component: {fileID: 1541468195}
   m_Layer: 0
   m_Name: Pillar (31)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6550,8 +6550,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541468194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.447525, y: 8.189661, z: 3.2578125}
-  m_LocalScale: {x: 19.136572, y: 1.8310215, z: 1}
+  m_LocalPosition: {x: 22.495, y: 4.773, z: 3.2578125}
+  m_LocalScale: {x: 16.048923, y: 1.3962939, z: 1}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 16
@@ -7047,7 +7047,7 @@ GameObject:
   - component: {fileID: 1675719506}
   m_Layer: 0
   m_Name: Pillar (44)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7263,7 +7263,7 @@ GameObject:
   - component: {fileID: 1731381731}
   m_Layer: 0
   m_Name: Pillar (30)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7336,8 +7336,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731381730}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.992523, y: -0.92033887, z: 3.2578125}
-  m_LocalScale: {x: 1.9224362, y: 2.1350756, z: 0.90239}
+  m_LocalPosition: {x: 12.889, y: -2.174, z: 3.2578125}
+  m_LocalScale: {x: 1.6122549, y: 1.6281582, z: 0.90239}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 15
@@ -8093,7 +8093,7 @@ GameObject:
   - component: {fileID: 1936288298}
   m_Layer: 0
   m_Name: Pillar (28)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8417,7 +8417,7 @@ GameObject:
   - component: {fileID: 2045583392}
   m_Layer: 0
   m_Name: Pillar (42)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
