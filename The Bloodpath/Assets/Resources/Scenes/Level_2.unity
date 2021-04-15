@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4973347}
   m_Layer: 0
   m_Name: Pillar (19)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 27257394}
   m_Layer: 0
   m_Name: Pillar (12)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -570,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -831,7 +831,7 @@ Transform:
   - {fileID: 31506941}
   - {fileID: 1408392122}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &126929362
 PrefabInstance:
@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -947,7 +947,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -985,7 +985,7 @@ GameObject:
   - component: {fileID: 156654873}
   m_Layer: 0
   m_Name: Cube (7)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: 205175751}
   m_Layer: 0
   m_Name: Pillar (14)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 218789724}
   m_Layer: 0
   m_Name: Pillar (17)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1419,7 +1419,7 @@ GameObject:
   - component: {fileID: 229945628}
   m_Layer: 0
   m_Name: Pillar (18)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1636,7 +1636,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -1767,7 +1767,7 @@ GameObject:
   - component: {fileID: 325846939}
   m_Layer: 0
   m_Name: Pillar (3)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1892,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -2084,7 +2084,7 @@ Transform:
   - {fileID: 205175754}
   - {fileID: 891236356}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392933234
 GameObject:
@@ -2316,7 +2316,7 @@ GameObject:
   - component: {fileID: 444447440}
   m_Layer: 0
   m_Name: Pillar (25)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2389,8 +2389,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444447439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.317482, y: 1.7196612, z: 3.2578125}
-  m_LocalScale: {x: 5.7960157, y: 2.12345, z: 1}
+  m_LocalPosition: {x: -8.49, y: 1.8, z: 3.2578125}
+  m_LocalScale: {x: 5.676242, y: 2.12345, z: 1}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 10
@@ -2533,7 +2533,7 @@ GameObject:
   - component: {fileID: 533527044}
   m_Layer: 0
   m_Name: Pillar (13)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2657,7 +2657,7 @@ GameObject:
   - component: {fileID: 573325693}
   m_Layer: 0
   m_Name: Pillar (9)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2781,7 +2781,7 @@ GameObject:
   - component: {fileID: 577675215}
   m_Layer: 0
   m_Name: Pillar (11)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2968,7 +2968,7 @@ GameObject:
   - component: {fileID: 709401221}
   m_Layer: 0
   m_Name: Pillar (7)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 805849348}
   m_Layer: 0
   m_Name: Pillar (23)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3372,7 +3372,7 @@ PrefabInstance:
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
@@ -3410,7 +3410,7 @@ GameObject:
   - component: {fileID: 891236353}
   m_Layer: 0
   m_Name: Pillar (15)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3504,7 +3504,7 @@ GameObject:
   - component: {fileID: 906031279}
   m_Layer: 0
   m_Name: Pillar (4)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3815,7 +3815,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -3853,7 +3853,7 @@ GameObject:
   - component: {fileID: 962813418}
   m_Layer: 0
   m_Name: Pillar (26)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3926,8 +3926,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962813417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.647476, y: -6.756339, z: 3.2578125}
-  m_LocalScale: {x: 5.7960157, y: 3.2523937, z: 1}
+  m_LocalPosition: {x: -5.408, y: -6.437, z: 3.2578125}
+  m_LocalScale: {x: 4.518459, y: 2.613614, z: 1}
   m_Children: []
   m_Father: {fileID: 1890160562}
   m_RootOrder: 11
@@ -3977,7 +3977,7 @@ PrefabInstance:
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
@@ -4108,7 +4108,7 @@ GameObject:
   - component: {fileID: 1019336848}
   m_Layer: 0
   m_Name: Pillar (2)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4635,7 +4635,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -4827,7 +4827,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -4958,7 +4958,7 @@ GameObject:
   - component: {fileID: 1134169653}
   m_Layer: 0
   m_Name: Pillar (6)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5113,7 +5113,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -5265,7 +5265,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -5489,7 +5489,7 @@ GameObject:
   - component: {fileID: 1296765657}
   m_Layer: 0
   m_Name: Pillar (5)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5613,7 +5613,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -5937,7 +5937,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -6601,7 +6601,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -6762,7 +6762,7 @@ GameObject:
   - component: {fileID: 1645786855}
   m_Layer: 0
   m_Name: Pillar (20)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6886,7 +6886,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -7387,7 +7387,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -7486,7 +7486,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -7524,7 +7524,7 @@ GameObject:
   - component: {fileID: 1795494716}
   m_Layer: 0
   m_Name: Pillar (16)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7617,7 +7617,7 @@ GameObject:
   - component: {fileID: 1830922083}
   m_Layer: 0
   m_Name: Pillar (8)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7742,7 +7742,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -7780,7 +7780,7 @@ GameObject:
   - component: {fileID: 1871737871}
   m_Layer: 0
   m_Name: Pillar (22)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7909,7 +7909,7 @@ Transform:
   - {fileID: 992883086}
   - {fileID: 1504763400}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1892053486
 PrefabInstance:
@@ -7956,7 +7956,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -8055,7 +8055,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -8217,7 +8217,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -8286,7 +8286,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -8541,7 +8541,7 @@ PrefabInstance:
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5798516143568037597, guid: 26be8ce2647839d4595e8aaef9232a68,
         type: 3}
@@ -8579,7 +8579,7 @@ GameObject:
   - component: {fileID: 2051761468}
   m_Layer: 0
   m_Name: Pillar (10)
-  m_TagString: Wall
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
