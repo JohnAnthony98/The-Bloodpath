@@ -310,7 +310,7 @@ public class PlayerController : MonoBehaviour
             ResetMoves();
             onGround = true;
         }
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "Spike")
         {
             Respawn();
             ResetMoves();
