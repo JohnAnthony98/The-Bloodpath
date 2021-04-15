@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
 
+    private List<GameObject> killedEnemies;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
         dashPreFab = Resources.Load("PreFabs/DashAttack") as GameObject;
         shotgunPreFab = Resources.Load("PreFabs/ShotgunBlast") as GameObject;
+
+        killedEnemies = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -73,24 +79,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //if the player crosses a checkpoint, update the checkpoint variable, so the player respawns there upon death
-        if (other.gameObject.CompareTag("checkpoint"))
-        {
-            checkpoint = other.gameObject.transform.position;
-        }
-        else if (other.gameObject.CompareTag("Finish"))
-        {
-            GameController.gameController.PlayerWins();
-            Destroy(other.gameObject);
-        }
-
-    }
-
     private void Respawn()
     {
-        transform.position = checkpoint;
+        LoadCheckpoint();
     }
 
     private void Facing()
@@ -287,12 +278,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void SetCheckpoint()
+    {
+        foreach (GameObject go in killedEnemies)
+        {
+            Destroy(go);
+        }
+        killedEnemies.Clear();
+    }
+
+    private void LoadCheckpoint()
+    {
+        transform.position = checkpoint;
+        foreach (GameObject go in killedEnemies)
+        {
+            go.SetActive(true);
+        }
+        killedEnemies.Clear();
+    }
+
+    public void EnemyDestroyed(GameObject go)
+    {
+        killedEnemies.Add(go);
+        ResetMoves();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "ground")
         {
             ResetMoves();
             onGround = true;
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            Respawn();
+            ResetMoves();
         }
     }
 
@@ -302,6 +323,22 @@ public class PlayerController : MonoBehaviour
         {
             onGround = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if the player crosses a checkpoint, update the checkpoint variable, so the player respawns there upon death
+        if (other.gameObject.CompareTag("checkpoint"))
+        {
+            checkpoint = other.gameObject.transform.position;
+            SetCheckpoint();
+        }
+        else if (other.gameObject.CompareTag("Finish"))
+        {
+            GameController.gameController.PlayerWins();
+            Destroy(other.gameObject);
+        }
+
     }
 
     public Vector2 GetFacing()
