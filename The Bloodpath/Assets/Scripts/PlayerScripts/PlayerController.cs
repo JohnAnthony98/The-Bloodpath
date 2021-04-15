@@ -107,9 +107,12 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (GameController.gameController.GamePaused())
+        if(GameController.gameController != null)
         {
-            return;
+            if (GameController.gameController.GamePaused())
+            {
+                return;
+            }
         }
         GameObject attack;
         if (Input.GetKey("k") && dashesLeft > 0)

@@ -7,7 +7,6 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public static GameController gameController;
-    public GameObject controllerObject;
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject youWin;
@@ -112,6 +111,6 @@ public class GameController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(controllerObject);
+        Destroy(this.gameObject);
     }
 }
