@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
 {
-    public bool findingTopBound;
-    public bool findingBottomBound;
-    public float speed;
+    private bool findingTopBound;
+    private bool findingBottomBound;
+    private float speed;
 
     private Vector3 orgin;
     private Vector3 topBound;
@@ -19,7 +19,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         findingTopBound = false;
         findingBottomBound = true;
-        speed = 0.025f;
+        speed = 0.03f;
         range = 1f;
 
         orgin = transform.position;
@@ -42,6 +42,8 @@ public class FlyingEnemy : MonoBehaviour
             //move down
             Vector3 newPos = transform.position;
             newPos.y -= speed;
+            newPos.x = orgin.x;
+            newPos.z = orgin.z;
             transform.position = newPos;
 
             if (transform.position.y <= bottomBound.y)
@@ -55,6 +57,8 @@ public class FlyingEnemy : MonoBehaviour
             //move up
             Vector3 newPos = transform.position;
             newPos.y += speed;
+            newPos.x = orgin.x;
+            newPos.z = orgin.z;
             transform.position = newPos;
 
             if (transform.position.y >= topBound.y)
@@ -103,9 +107,9 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            Destroy(this);
+            this.gameObject.SetActive(false);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<PlayerController>().ResetMoves();
+            player.GetComponent<PlayerController>().EnemyDestroyed(this.gameObject);
         }
     }
 

@@ -95,9 +95,9 @@ public class GroundEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            Destroy(this);
+            this.gameObject.SetActive(false);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<PlayerController>().ResetMoves();
+            player.GetComponent<PlayerController>().EnemyDestroyed(this.gameObject);
         }
     }
 
