@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private float dash_force;
     private float sg_force;
+    private float walkSpeed;
     private float deathBarrier = -20;
     private bool moveable;
     private float move_time;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         checkpoint = transform.position;
         dash_force = 12f;
         sg_force = 6f;
+        walkSpeed = 0.5f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
@@ -275,6 +277,21 @@ public class PlayerController : MonoBehaviour
                 attack = Instantiate(shotgunPreFab) as GameObject;
             }
             blastsLeft--;
+        }
+
+        if (Input.GetKey("a") && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(-1 * walkSpeed, 0, 0, ForceMode.Impulse);
+        }
+        if (Input.GetKey("d") && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(walkSpeed, 0, 0, ForceMode.Impulse);
         }
     }
 
