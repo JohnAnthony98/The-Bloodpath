@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private float dash_force;
     private float sg_force;
+    private float walkSpeed;
     private float deathBarrier = -20;
     private bool moveable;
     private float move_time;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         checkpoint = transform.position;
         dash_force = 12f;
         sg_force = 6f;
+        walkSpeed = 0.5f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
@@ -86,11 +88,11 @@ public class PlayerController : MonoBehaviour
 
     private void Facing()
     {
-        if (Input.GetKey("a"))
+        if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
         {
             BodyFacing.x = -1;
         }
-        else if (Input.GetKey("d"))
+        else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
         {
             BodyFacing.x = 1;
         }
@@ -106,15 +108,15 @@ public class PlayerController : MonoBehaviour
             }
         }
         GameObject attack;
-        if (Input.GetKey("k") && dashesLeft > 0)
+        if (Input.GetButton("dash") && dashesLeft > 0)
         {
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
-            if (Input.GetKey("w"))
+            if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
             {
                 //jumping
-                if (Input.GetKey("a"))
+                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector2(-1, 1);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d"))
+                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -145,10 +147,10 @@ public class PlayerController : MonoBehaviour
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
-            else if (Input.GetKey("s"))
+            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5)
             {
                 //jumping
-                if (Input.GetKey("a"))
+                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector2(-1, -1);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d"))
+                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -191,15 +193,15 @@ public class PlayerController : MonoBehaviour
             }
             dashesLeft--;
         }
-        if (Input.GetKey("l") && blastsLeft > 0)
+        if (Input.GetButton("shotgun") && blastsLeft > 0)
         {
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
-            if (Input.GetKey("w"))
+            if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
             {
                 //jumping
-                if (Input.GetKey("a"))
+                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -209,7 +211,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector2(-1, 1);
                     attack = Instantiate(shotgunPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d"))
+                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -230,10 +232,10 @@ public class PlayerController : MonoBehaviour
                     attack = Instantiate(shotgunPreFab) as GameObject;
                 }
             }
-            else if (Input.GetKey("s"))
+            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5)
             {
                 //jumping
-                if (Input.GetKey("a"))
+                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -243,7 +245,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector2(-1, -1);
                     attack = Instantiate(shotgunPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d"))
+                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -275,6 +277,21 @@ public class PlayerController : MonoBehaviour
                 attack = Instantiate(shotgunPreFab) as GameObject;
             }
             blastsLeft--;
+        }
+
+        if ((Input.GetAxis("Horizontal") < -0.5 || Input.GetKey("a")) && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(-1 * walkSpeed, 0, 0, ForceMode.Impulse);
+        }
+        if ((Input.GetAxis("Horizontal") > 0.5 || Input.GetKey("d")) && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(walkSpeed, 0, 0, ForceMode.Impulse);
         }
     }
 
