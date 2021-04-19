@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject youWin;
+    public GameObject controlsMenu;
     private bool paused;
 
     void Awake()
@@ -51,12 +52,10 @@ public class GameController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0) // Level 1
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetButtonDown("Pause"))
             {
                 //Debug.Log("Escape Pressed");
-                paused = true;
-                pauseMenu.SetActive(true);
-                Time.timeScale = 0f;
+                PauseGame();
             }
         }
     }
@@ -68,12 +67,38 @@ public class GameController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    private void PauseGame()
+    {
+        paused = true;
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        ResumeGame();
+    }
+
     public void MainMenu()
     {
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
         youWin.SetActive(false);
         SceneManager.LoadScene(0);
+    }
+
+    public void SeeControls()
+    {
+        PauseGame();
+        pauseMenu.SetActive(false);
+        controlsMenu.SetActive(true);
+    }
+
+    public void LeaveControls()
+    {
+        controlsMenu.SetActive(false);
+        PauseGame();
     }
 
     public void StartGame()
