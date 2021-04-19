@@ -98,7 +98,10 @@ public class GameController : MonoBehaviour
     public void LeaveControls()
     {
         controlsMenu.SetActive(false);
-        PauseGame();
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            PauseGame();
+        }
     }
 
     public void StartGame()
@@ -115,6 +118,11 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("Error::Started game while game was already started");
         }
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
