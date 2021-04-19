@@ -98,7 +98,10 @@ public class GameController : MonoBehaviour
     public void LeaveControls()
     {
         controlsMenu.SetActive(false);
-        PauseGame();
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            PauseGame();
+        }
     }
 
     public void StartGame()
