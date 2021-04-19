@@ -46,6 +46,7 @@ public class GroundEnemy : MonoBehaviour
             Vector3 newPos = transform.position;
             newPos.x += speed;
             transform.position = newPos;
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
         else if (findingLeftBound)
         {
@@ -54,6 +55,7 @@ public class GroundEnemy : MonoBehaviour
             newPos.x -= speed;
             transform.position = newPos;
             startTime = Time.time;
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
     }
 
@@ -84,7 +86,7 @@ public class GroundEnemy : MonoBehaviour
                 return;
             }
         }
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("enemy"))
         {
             SetBound();
             moveChecker.GetComponent<GroundEnemyMoveChecker>().SwapBound();
