@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    private float dash_force;
-    private float sg_force;
-    private float walkSpeed;
+    public float dash_force;
+    public float sg_force;
+    public float walkSpeed;
     private float deathBarrier = -20;
     private bool moveable;
     private float move_time;
