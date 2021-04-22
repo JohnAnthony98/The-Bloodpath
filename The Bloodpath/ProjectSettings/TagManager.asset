@@ -8,6 +8,8 @@ TagManager:
   - ground
   - Wall
   - Spike
+  - enemy
+  - checkpoint
   layers:
   - Default
   - TransparentFX

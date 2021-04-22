@@ -356,6 +356,20 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
         }
 
+        if (other.gameObject.tag == "ground")
+        {
+            ResetMoves();
+            onGround = true;
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "ground")
+        {
+            onGround = false;
+        }
     }
 
     public Vector2 GetFacing()

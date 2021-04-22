@@ -85,6 +85,7 @@ public class GameController : MonoBehaviour
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
         youWin.SetActive(false);
+        youWin.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
         SceneManager.LoadScene(0);
     }
 
@@ -123,6 +124,7 @@ public class GameController : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        youWin.SetActive(false);
     }
 
     public void QuitGame()
@@ -145,6 +147,12 @@ public class GameController : MonoBehaviour
     public void PlayerWins()
     {
         youWin.SetActive(true);
+        //if there are no more levels
+        if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+        {
+            //set NextLevel button to inactive
+            GameObject.FindGameObjectWithTag("NextLevel").SetActive(false);
+        }
     }
 
     private void OnDestroy()
