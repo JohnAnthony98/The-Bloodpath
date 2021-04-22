@@ -95,6 +95,17 @@ public class GroundEnemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("ground"))
+        {
+            if (foundGround == false)
+            {
+                foundGround = true;
+                findingRightBound = true;
+                moveChecker = Instantiate(moveCheckerPreFab);
+                moveChecker.GetComponent<GroundEnemyMoveChecker>().SetEnemy(this.gameObject);
+                return;
+            }
+        }
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
             this.gameObject.SetActive(false);
