@@ -13,6 +13,11 @@ public class FlyingEnemy : MonoBehaviour
     private Vector3 bottomBound;
     private float range;
 
+    private bool playerHit;
+    private float timeHit;
+    private float pauseTime;
+    private Vector3 hitLocation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +32,27 @@ public class FlyingEnemy : MonoBehaviour
         topBound.y += range;
         bottomBound = orgin;
         bottomBound.y -= range;
+
+        playerHit = false;
+        pauseTime = 1f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        if (!playerHit)
+        {
+            Move();
+        }
+        else
+        {
+            if (Time.time - timeHit > pauseTime)
+            {
+                playerHit = false;
+            }
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            transform.position = hitLocation;
+        }
     }
 
     private void Move()
@@ -100,6 +120,13 @@ public class FlyingEnemy : MonoBehaviour
         {
             SetBound();
             ChangeDirection();
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHit = true;
+            timeHit = Time.time;
+            hitLocation = transform.position;
         }
     }
 

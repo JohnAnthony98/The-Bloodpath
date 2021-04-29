@@ -27,6 +27,12 @@ public class PlayerController : MonoBehaviour
 
     private List<GameObject> killedEnemies;
 
+    public int health;
+    private int maxHealth;
+    private float impactForce;
+    private float stagger;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +56,10 @@ public class PlayerController : MonoBehaviour
         shotgunPreFab = Resources.Load("PreFabs/ShotgunBlast") as GameObject;
 
         killedEnemies = new List<GameObject>();
+        maxHealth = 2;
+        health = maxHealth;
+        impactForce = 3f;
+        stagger = 0.1f;
     }
 
     // Update is called once per frame
@@ -83,6 +93,7 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
+        health = maxHealth;
         LoadCheckpoint();
     }
 
@@ -327,10 +338,32 @@ public class PlayerController : MonoBehaviour
             ResetMoves();
             onGround = true;
         }
-        if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "Spike")
+        if ((collision.gameObject.tag == "enemy" || collision.gameObject.tag == "Spike") && moveable)
         {
-            Respawn();
-            ResetMoves();
+            health--;
+            if(health <= 0)
+            {
+                Respawn();
+                ResetMoves();
+                return;
+            }
+            //move player away from enemy 
+            if(collision.transform.position.x > this.transform.position.x)
+            {
+                rbody.velocity = new Vector3(0, 0, 0);
+                rbody.AddForce(impactForce * -1, 0, 0, ForceMode.Impulse);
+                moveable = false;
+                move_time = Time.time + (move_cooldown - stagger);
+                BodyFacing.y = 0;
+            }
+            else
+            {
+                rbody.velocity = new Vector3(0, 0, 0);
+                rbody.AddForce(impactForce, 0, 0, ForceMode.Impulse);
+                moveable = false;
+                move_time = Time.time + (move_cooldown - stagger);
+                BodyFacing.y = 0;
+            }
         }
     }
 

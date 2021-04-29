@@ -207,6 +207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5406619490336221491, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5406619490336221494, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -275,6 +280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GroundEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5406619490336221490, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406619490336221494, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
         type: 3}
@@ -584,6 +594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: spike
       objectReference: {fileID: 0}
+    - target: {fileID: 8472816683600373655, guid: 26be8ce2647839d4595e8aaef9232a68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26be8ce2647839d4595e8aaef9232a68, type: 3}
 --- !u!1 &552229751
@@ -791,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1388358961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7fd60e79d1c2f4f97a5745b7036446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dash_force: 0
+  sg_force: 0
+  walkSpeed: 0
+  health: 0
 --- !u!54 &1388358962
 Rigidbody:
   m_ObjectHideFlags: 0

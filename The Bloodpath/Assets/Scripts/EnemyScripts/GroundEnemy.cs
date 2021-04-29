@@ -16,6 +16,11 @@ public class GroundEnemy : MonoBehaviour
     private GameObject moveCheckerPreFab;
     private GameObject moveChecker;
 
+    private bool playerHit;
+    private float timeHit;
+    private float pauseTime;
+    private Vector3 hitLocation;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +30,27 @@ public class GroundEnemy : MonoBehaviour
         findingLeftBound = false;
         moveCheckerPreFab = Resources.Load("PreFabs/Enemies/GroundEnemyMoveChecker") as GameObject;
         speed = 0.05f;
+
+        playerHit = false;
+        pauseTime = 1f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Move();
+        if (!playerHit)
+        {
+            Move();
+        }
+        else
+        {
+            if (Time.time - timeHit > pauseTime)
+            {
+                playerHit = false;
+            }
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            transform.position = hitLocation;
+        }
     }
 
     private void Move()
@@ -90,6 +110,13 @@ public class GroundEnemy : MonoBehaviour
         {
             SetBound();
             moveChecker.GetComponent<GroundEnemyMoveChecker>().SwapBound();
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHit = true;
+            timeHit = Time.time;
+            hitLocation = transform.position;
         }
     }
 
