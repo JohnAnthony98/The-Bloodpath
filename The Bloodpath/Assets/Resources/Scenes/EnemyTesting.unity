@@ -207,6 +207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 5406619490336221490, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5406619490336221491, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
         type: 3}
       propertyPath: m_IsTrigger

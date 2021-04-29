@@ -83,7 +83,8 @@ public class PlayerController : MonoBehaviour
                 moveable = true;
                 rbody.velocity = new Vector3(0, 0, 0);
                 rbody.useGravity = true;
-                if(onGround == true)
+                this.GetComponent<Collider>().isTrigger = false;
+                if (onGround == true)
                 {
                     ResetMoves();
                 }
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         GameObject attack;
         if (Input.GetButton("dash") && dashesLeft > 0)
         {
+            this.GetComponent<Collider>().isTrigger = true;
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
@@ -206,6 +208,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("shotgun") && blastsLeft > 0)
         {
+            this.GetComponent<Collider>().isTrigger = true;
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
@@ -393,7 +396,14 @@ public class PlayerController : MonoBehaviour
         {
             ResetMoves();
             onGround = true;
+            this.GetComponent<Collider>().isTrigger = false;
         }
+
+        if (other.gameObject.tag == "Wall")
+        {
+            this.GetComponent<Collider>().isTrigger = false;
+        }
+
     }
 
 
