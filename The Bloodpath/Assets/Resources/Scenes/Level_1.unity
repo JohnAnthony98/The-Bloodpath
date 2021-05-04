@@ -9137,9 +9137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7fd60e79d1c2f4f97a5745b7036446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash_force: 0
-  sg_force: 0
+  dash_force: 15
+  sg_force: 10
   walkSpeed: 0
+  health: 0
 --- !u!54 &1408381433
 Rigidbody:
   m_ObjectHideFlags: 0
