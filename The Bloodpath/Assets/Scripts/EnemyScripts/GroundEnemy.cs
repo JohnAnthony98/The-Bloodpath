@@ -16,9 +16,6 @@ public class GroundEnemy : MonoBehaviour
     private GameObject moveCheckerPreFab;
     private GameObject moveChecker;
 
-    private int health;
-    private int maxHealth;
-
     private bool playerHit;
     private float timeHit;
     private float pauseTime;
@@ -36,9 +33,6 @@ public class GroundEnemy : MonoBehaviour
 
         playerHit = false;
         pauseTime = 1f;
-
-        maxHealth = 2;
-        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -141,24 +135,9 @@ public class GroundEnemy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
-            if(other.name == "DashAttack(Clone)")
-            {
-                health -= 1;
-            }
-            else
-            {
-                health -= 2;
-            }
-            if(health <= 0)
-            {
-                this.gameObject.SetActive(false);
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-                player.GetComponent<PlayerController>().EnemyDestroyed(this.gameObject);
-                health = maxHealth;
-            }
-            playerHit = true;
-            timeHit = Time.time;
-            hitLocation = transform.position;
+            this.gameObject.SetActive(false);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerController>().EnemyDestroyed(this.gameObject);
         }
     }
 

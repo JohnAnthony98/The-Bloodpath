@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private int dashesLeft;
     private int maxBlasts;
     private int blastsLeft;
+    private int deaths;
     private bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
@@ -32,11 +32,14 @@ public class PlayerController : MonoBehaviour
     private float impactForce;
     private float stagger;
 
+    public TextMeshProUGUI healthDisplay;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        deaths = 0;
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthDisplay.text = "Health: " + health;
         //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
         if (transform.position.y < deathBarrier)
         {
@@ -92,10 +96,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetDashes()
+    {
+        return dashesLeft;
+    }
+
+    public int GetDeaths()
+    {
+        return deaths;
+    }
+
     private void Respawn()
     {
         health = maxHealth;
         LoadCheckpoint();
+        deaths++;
     }
 
     private void Facing()
@@ -341,7 +356,7 @@ public class PlayerController : MonoBehaviour
             ResetMoves();
             onGround = true;
         }
-        if ((collision.gameObject.tag == "enemy" || collision.gameObject.tag == "Spike") && moveable)
+        if (collision.gameObject.tag == "enemy" && moveable)
         {
             health--;
             if(health <= 0)
@@ -367,6 +382,21 @@ public class PlayerController : MonoBehaviour
                 move_time = Time.time + (move_cooldown - stagger);
                 BodyFacing.y = 0;
             }
+        }
+        if(collision.gameObject.tag == "Spike" && moveable)
+        {
+            health -= maxHealth;
+            if (health <= 0)
+            {
+                Respawn();
+                ResetMoves();
+                return;
+            }
+            else
+            {
+                Debug.Log("Player had more health than max");
+            }
+            
         }
     }
 
