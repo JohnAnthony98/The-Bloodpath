@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private int dashesLeft;
     private int maxBlasts;
     private int blastsLeft;
+    private int deaths;
     private bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deaths = 0;
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
@@ -90,10 +92,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetDashes()
+    {
+        return dashesLeft;
+    }
+
+    public int GetDeaths()
+    {
+        return deaths;
+    }
+
     private void Respawn()
     {
         health = maxHealth;
         LoadCheckpoint();
+        deaths++;
     }
 
     private void Facing()
