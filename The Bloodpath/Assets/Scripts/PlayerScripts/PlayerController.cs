@@ -343,7 +343,7 @@ public class PlayerController : MonoBehaviour
             ResetMoves();
             onGround = true;
         }
-        if ((collision.gameObject.tag == "enemy" || collision.gameObject.tag == "Spike") && moveable)
+        if (collision.gameObject.tag == "enemy" && moveable)
         {
             health--;
             if(health <= 0)
@@ -369,6 +369,21 @@ public class PlayerController : MonoBehaviour
                 move_time = Time.time + (move_cooldown - stagger);
                 BodyFacing.y = 0;
             }
+        }
+        if(collision.gameObject.tag == "Spike" && moveable)
+        {
+            health -= maxHealth;
+            if (health <= 0)
+            {
+                Respawn();
+                ResetMoves();
+                return;
+            }
+            else
+            {
+                Debug.Log("Player had more health than max");
+            }
+            
         }
     }
 
