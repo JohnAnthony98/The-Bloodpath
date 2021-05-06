@@ -61,23 +61,6 @@ public class GameController : MonoBehaviour
                 PauseGame();
             }
         }
-
-        if (controlsMenu.activeSelf)
-        {
-            //Set bounds and scale of controls menu graphics
-            float offset = Screen.width / 4;
-            //Xbox controller Graphic position
-            Vector3 xboxPosition = new Vector3(Screen.width / 4, Screen.height / 2, 0);
-            controlsMenu.transform.GetChild(0).transform.GetChild(1).gameObject.transform.position = xboxPosition;
-            //PC controls Graphic position
-            Vector3 pcPosition = new Vector3(3 * Screen.width / 4, Screen.height / 2, 0);
-            controlsMenu.transform.GetChild(0).transform.GetChild(2).gameObject.transform.position = pcPosition;
-            //PC and Xbox controller Graphic scale
-            float scale = Screen.width / 275;
-            Vector3 graphicScale = new Vector3(scale, scale, 0);
-            controlsMenu.transform.GetChild(0).transform.GetChild(1).gameObject.transform.localScale = graphicScale;
-            controlsMenu.transform.GetChild(0).transform.GetChild(2).gameObject.transform.localScale = graphicScale;
-        }
     }
 
     public void ResumeGame()
