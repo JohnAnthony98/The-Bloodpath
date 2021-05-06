@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         checkpoint = transform.position;
-        dash_force = 12f;
-        sg_force = 6f;
+        dash_force = 15f;
+        sg_force = 10f;
         walkSpeed = 0.5f;
         moveable = true;
         move_cooldown = 0.25f;
