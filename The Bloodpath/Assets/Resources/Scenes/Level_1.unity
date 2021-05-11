@@ -2876,7 +2876,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2893,7 +2893,6 @@ RectTransform:
   m_Children:
   - {fileID: 335644537}
   - {fileID: 1872289121}
-  - {fileID: 2058748813}
   m_Father: {fileID: 1408381437}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12885,6 +12884,7 @@ Transform:
   m_Father: {fileID: 1269351699}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &2058748812
 GameObject:
   m_ObjectHideFlags: 0
@@ -13018,6 +13018,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058748812}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> parent of f262de5 (Added health counter)
 --- !u!4 &2071336758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5406619490336221494, guid: 3c3484aba4b0f0043be81ac7c778a0ae,
