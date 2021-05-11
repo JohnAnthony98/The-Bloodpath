@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         int numDashes = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDashes();
         int deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDeaths();
 
-        deathsText.text = "Deaths: " + deaths;
+        deathsText.text = "" + deaths;
 
         if (SceneManager.GetActiveScene().buildIndex != 0) // Level 1
         {
