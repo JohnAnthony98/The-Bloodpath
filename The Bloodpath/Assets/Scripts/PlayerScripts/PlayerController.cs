@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
-    private int deaths;
 
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
@@ -38,6 +37,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deaths = 0;
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
@@ -93,6 +93,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetDashes()
+    {
+        return dashesLeft;
+    }
+
+    public int GetDeaths()
+    {
+        return deaths;
+    }
+
     private void Respawn()
     {
         health = maxHealth;
@@ -110,16 +120,6 @@ public class PlayerController : MonoBehaviour
         {
             BodyFacing.x = 1;
         }
-    }
-
-    public int GetDashes()
-    {
-        return dashesLeft;
-    }
-
-    public int GetDeaths()
-    {
-        return deaths;
     }
 
     private void Move()
@@ -387,7 +387,7 @@ public class PlayerController : MonoBehaviour
         }
         if(collision.gameObject.tag == "Spike")
         {
-
+            
              Respawn();
              ResetMoves();
              return;
