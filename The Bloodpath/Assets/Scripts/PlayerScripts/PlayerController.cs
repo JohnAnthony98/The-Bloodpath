@@ -240,84 +240,14 @@ public class PlayerController : MonoBehaviour
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
-            if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
-            {
-                //jumping
-                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(sg_force * 1, sg_force * -1, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(-1, 1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(sg_force * -1, sg_force * -1, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(1, 1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-                else
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(0, sg_force * -1, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(0, 1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-            }
-            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5)
-            {
-                //jumping
-                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(sg_force * 1, sg_force, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(-1, -1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(sg_force * -1, sg_force, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(1, -1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-                else
-                {
-                    rbody.velocity = new Vector3(0, 0, 0);
-                    rbody.useGravity = false;
-                    rbody.AddForce(0, sg_force, 0, ForceMode.Impulse);
-                    moveable = false;
-                    move_time = Time.time;
-                    BodyFacing = new Vector2(0, -1);
-                    attack = Instantiate(shotgunPreFab) as GameObject;
-                }
-            }
-            else
-            {
-                rbody.velocity = new Vector3(0, 0, 0);
-                rbody.useGravity = false;
-                rbody.AddForce(sg_force * BodyFacing.x * -1, 0, 0, ForceMode.Impulse);
-                moveable = false;
-                move_time = Time.time;
-                BodyFacing.y = 0;
-                attack = Instantiate(shotgunPreFab) as GameObject;
-            }
+            
+            rbody.velocity = new Vector3(0, 0, 0);
+            rbody.useGravity = false;
+            rbody.AddForce(sg_force * BodyFacing.x * -1, 0, 0, ForceMode.Impulse);
+            moveable = false;
+            move_time = Time.time;
+            BodyFacing.y = 0;
+            attack = Instantiate(shotgunPreFab) as GameObject;
             blastsLeft--;
         }
 
