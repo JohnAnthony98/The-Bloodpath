@@ -33,9 +33,6 @@ public class PlayerController : MonoBehaviour
     private float stagger;
 
 
-    public TextMeshProUGUI healthDisplay;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +66,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthDisplay.text = "Health: " + health;
         //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
         if (transform.position.y < deathBarrier)
         {
