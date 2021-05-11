@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public GameObject controlsMenu;
     public GameObject deathCounter;
     public GameObject dashCounter;
+    public GameObject blastCounter;
+    public GameObject healthCounter;
     public TextMeshProUGUI deathsText;
 
     private bool paused;
@@ -42,10 +44,11 @@ public class GameController : MonoBehaviour
         }
         pauseMenu.SetActive(false);
         paused = false;
-
         youWin.SetActive(false);
-
         deathCounter.SetActive(false);
+        dashCounter.SetActive(false);
+        blastCounter.SetActive(false);
+        healthCounter.SetActive(false);
 
         //set Controls Menu to inactive
         controlsMenu.SetActive(false);
@@ -63,6 +66,12 @@ public class GameController : MonoBehaviour
     {
         int numDashes = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDashes();
         int deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDeaths();
+        int numBlasts = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetBlasts();
+        int playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetHealth();
+
+        UILoop(3, dashCounter, numDashes);
+        UILoop(2, blastCounter, numBlasts);
+        UILoop(3, healthCounter, playerHealth);
 
         deathsText.text = "" + deaths;
 
@@ -74,6 +83,15 @@ public class GameController : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+
+    void UILoop(int num, GameObject UI, int action)
+    {
+        for (int i = 0; i < num; ++i)
+        {
+            UI.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        UI.transform.GetChild((num - 1) - action).gameObject.SetActive(true);
     }
 
     public void ResumeGame()
@@ -131,6 +149,9 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1f;
             SceneManager.LoadScene(1);
             deathCounter.SetActive(true);
+            dashCounter.SetActive(true);
+            blastCounter.SetActive(true);
+            healthCounter.SetActive(true);
         }
         else
         {

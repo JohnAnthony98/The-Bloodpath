@@ -122,6 +122,16 @@ public class PlayerController : MonoBehaviour
         return deaths;
     }
 
+    public int GetBlasts()
+    {
+        return blastsLeft;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
     private void Move()
     {
         if(GameController.gameController != null)
