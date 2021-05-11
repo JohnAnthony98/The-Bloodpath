@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
+    private int deaths;
 
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
@@ -96,6 +97,7 @@ public class PlayerController : MonoBehaviour
     {
         health = maxHealth;
         LoadCheckpoint();
+        deaths++;
     }
 
     private void Facing()
@@ -108,6 +110,16 @@ public class PlayerController : MonoBehaviour
         {
             BodyFacing.x = 1;
         }
+    }
+
+    public int GetDashes()
+    {
+        return dashesLeft;
+    }
+
+    public int GetDeaths()
+    {
+        return deaths;
     }
 
     private void Move()
