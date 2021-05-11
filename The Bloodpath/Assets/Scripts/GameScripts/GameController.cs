@@ -64,19 +64,19 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int numDashes = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDashes();
-        int deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDeaths();
-        int numBlasts = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetBlasts();
-        int playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetHealth();
-
-        UILoop(3, dashCounter, numDashes);
-        UILoop(2, blastCounter, numBlasts);
-        UILoop(3, healthCounter, playerHealth);
-
-        deathsText.text = "" + deaths;
-
-        if (SceneManager.GetActiveScene().buildIndex != 0) // Level 1
+        if (SceneManager.GetActiveScene().buildIndex != 0) // do this so long as you arent on the main menu
         {
+            int numDashes = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDashes();
+            int deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDeaths();
+            int numBlasts = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetBlasts();
+            int playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetHealth();
+
+            UILoop(3, dashCounter, numDashes);
+            UILoop(2, blastCounter, numBlasts);
+            UILoop(3, healthCounter, playerHealth);
+
+            deathsText.text = "" + deaths;
+
             if (Input.GetButtonDown("Pause"))
             {
                 //Debug.Log("Escape Pressed");

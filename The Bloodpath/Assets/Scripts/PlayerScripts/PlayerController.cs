@@ -70,10 +70,10 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
-
-        Facing();
+        
         if (moveable)
         {
+            Facing();
             Move();
         }
         else
@@ -104,10 +104,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
         {
             BodyFacing.x = -1;
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
         {
             BodyFacing.x = 1;
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
