@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
-    private int deaths;
 
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
