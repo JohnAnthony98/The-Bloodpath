@@ -16,8 +16,7 @@ public class PlayerController : MonoBehaviour
     private int dashesLeft;
     private int maxBlasts;
     private int blastsLeft;
-    private int deaths;
-    private bool onGround;
+    public bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
@@ -31,15 +30,13 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     private float impactForce;
     private float stagger;
-
-    public TextMeshProUGUI healthDisplay;
+    
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        deaths = 0;
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
@@ -68,7 +65,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthDisplay.text = "Health: " + health;
         //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
         if (transform.position.y < deathBarrier)
         {
@@ -96,21 +92,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public int GetDashes()
-    {
-        return dashesLeft;
-    }
-
-    public int GetDeaths()
-    {
-        return deaths;
-    }
-
     private void Respawn()
     {
         health = maxHealth;
         LoadCheckpoint();
-        deaths++;
     }
 
     private void Facing()
@@ -137,12 +122,12 @@ public class PlayerController : MonoBehaviour
         GameObject attack;
         if (Input.GetButton("dash") && dashesLeft > 0)
         {
-            this.GetComponent<Collider>().isTrigger = true;
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
             if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
             {
+                this.GetComponent<Collider>().isTrigger = true;
                 //jumping
                 if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
@@ -175,8 +160,13 @@ public class PlayerController : MonoBehaviour
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
-            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5)
+            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5 )
             {
+                if(onGround)
+                {
+                    return;
+                }
+                this.GetComponent<Collider>().isTrigger = true;
                 //jumping
                 if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
                 {
@@ -211,6 +201,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                this.GetComponent<Collider>().isTrigger = true;
                 rbody.velocity = new Vector3(0, 0, 0);
                 rbody.useGravity = false;
                 rbody.AddForce(dash_force * BodyFacing.x, 0, 0, ForceMode.Impulse);
@@ -223,7 +214,6 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetButton("shotgun") && blastsLeft > 0)
         {
-            this.GetComponent<Collider>().isTrigger = true;
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
@@ -426,7 +416,16 @@ public class PlayerController : MonoBehaviour
         {
             ResetMoves();
             onGround = true;
-            this.GetComponent<Collider>().isTrigger = false;
+            //Debug.Log("entered trigger ground");
+            if(Time.time - move_time >= Time.deltaTime)
+            {
+                Debug.Log("Post Frame Case");
+                this.GetComponent<Collider>().isTrigger = false;
+            }
+            else
+            {
+                Debug.Log("1st Frame Case");
+            }
         }
 
         if (other.gameObject.tag == "Wall")
