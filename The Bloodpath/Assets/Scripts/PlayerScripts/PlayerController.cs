@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     private int dashesLeft;
     private int maxBlasts;
     private int blastsLeft;
-    public bool onGround;
+    private int deaths;
+    private bool onGround;
     private Rigidbody rbody;
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
@@ -30,13 +31,16 @@ public class PlayerController : MonoBehaviour
     private int maxHealth;
     private float impactForce;
     private float stagger;
-    
+
+
+    public TextMeshProUGUI healthDisplay;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        deaths = 0;
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthDisplay.text = "Health: " + health;
         //check if the player has fallen below the death barrier, then reset them at thier last checkpoint
         if (transform.position.y < deathBarrier)
         {
@@ -92,10 +97,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public int GetDashes()
+    {
+        return dashesLeft;
+    }
+
+    public int GetDeaths()
+    {
+        return deaths;
+    }
+
     private void Respawn()
     {
         health = maxHealth;
         LoadCheckpoint();
+        deaths++;
     }
 
     private void Facing()
@@ -355,7 +371,7 @@ public class PlayerController : MonoBehaviour
                 ResetMoves();
                 return;
             }
-            //move player away from enemy 
+            //move player away from enemy
             if(collision.transform.position.x > this.transform.position.x)
             {
                 rbody.velocity = new Vector3(0, 0, 0);
@@ -386,7 +402,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Player had more health than max");
             }
-            
+
         }
     }
 

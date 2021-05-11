@@ -7,10 +7,15 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
     public static GameController gameController;
+
+    //Menus & UI
     public GameObject pauseMenu;
     public GameObject mainMenu;
     public GameObject youWin;
     public GameObject controlsMenu;
+    public GameObject deathCounter;
+    public TextMeshProUGUI deathsText;
+
     private bool paused;
 
     void Awake()
@@ -39,6 +44,8 @@ public class GameController : MonoBehaviour
 
         youWin.SetActive(false);
 
+        deathCounter.SetActive(false);
+
         //set Controls Menu to inactive
         controlsMenu.SetActive(false);
 
@@ -53,6 +60,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int numDashes = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDashes();
+        int deaths = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDeaths();
+
+        deathsText.text = "" + deaths;
+
         if (SceneManager.GetActiveScene().buildIndex != 0) // Level 1
         {
             if (Input.GetButtonDown("Pause"))
@@ -117,6 +129,7 @@ public class GameController : MonoBehaviour
             paused = false;
             Time.timeScale = 1f;
             SceneManager.LoadScene(1);
+            deathCounter.SetActive(true);
         }
         else
         {
@@ -128,6 +141,7 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         youWin.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void QuitGame()
@@ -150,6 +164,7 @@ public class GameController : MonoBehaviour
     public void PlayerWins()
     {
         youWin.SetActive(true);
+        Time.timeScale = 0;
         //if there are no more levels
         if(SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
         {
