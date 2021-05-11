@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public GameObject youWin;
     public GameObject controlsMenu;
     public GameObject deathCounter;
+    public GameObject dashCounter;
     public TextMeshProUGUI deathsText;
 
     private bool paused;
