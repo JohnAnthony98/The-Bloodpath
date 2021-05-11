@@ -640,12 +640,12 @@ PrefabInstance:
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.45
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
@@ -692,10 +692,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3165052523885146234, guid: c0c3567ca8410014781c7e76bd0ea0b9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3165052523885147012, guid: c0c3567ca8410014781c7e76bd0ea0b9,
         type: 3}
       propertyPath: m_Name
       value: Checkpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3165052523885147012, guid: c0c3567ca8410014781c7e76bd0ea0b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c3567ca8410014781c7e76bd0ea0b9, type: 3}
@@ -827,6 +837,7 @@ MonoBehaviour:
   dash_force: 0
   sg_force: 0
   walkSpeed: 0
+  onGround: 0
   health: 0
 --- !u!54 &1388358962
 Rigidbody:
@@ -1072,7 +1083,7 @@ PrefabInstance:
     - target: {fileID: 8271390887614987646, guid: 52449a2148417c8498ce03ae498085e6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52449a2148417c8498ce03ae498085e6, type: 3}
