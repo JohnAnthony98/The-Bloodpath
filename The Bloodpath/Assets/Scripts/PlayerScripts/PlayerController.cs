@@ -385,19 +385,12 @@ public class PlayerController : MonoBehaviour
                 BodyFacing.y = 0;
             }
         }
-        if(collision.gameObject.tag == "Spike" && moveable)
+        if(collision.gameObject.tag == "Spike")
         {
-            health -= maxHealth;
-            if (health <= 0)
-            {
-                Respawn();
-                ResetMoves();
-                return;
-            }
-            else
-            {
-                Debug.Log("Player had more health than max");
-            }
+            
+             Respawn();
+             ResetMoves();
+             return;
 
         }
     }
@@ -431,12 +424,12 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("entered trigger ground");
             if(Time.time - move_time >= Time.deltaTime)
             {
-                Debug.Log("Post Frame Case");
+                //Debug.Log("Post Frame Case");
                 this.GetComponent<Collider>().isTrigger = false;
             }
             else
             {
-                Debug.Log("1st Frame Case");
+                //Debug.Log("1st Frame Case");
             }
         }
 
