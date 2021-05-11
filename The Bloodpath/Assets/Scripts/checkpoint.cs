@@ -9,7 +9,7 @@ public class checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cubeRenderer = gameObject.transform.Find("indicator").GetComponent<Renderer>();
+        cubeRenderer = gameObject.GetComponent<Renderer>();
         cubeRenderer.material.color = Color.black;
     }
 
