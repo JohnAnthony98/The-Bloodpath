@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
         BodyFacing = new Vector3(1, 0, 1);
-        onGround = true;
+        onGround = false;
 
         sprite = this.gameObject.GetComponent<SpriteRenderer>();
 
@@ -98,8 +98,8 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
-        health = maxHealth;
         LoadCheckpoint();
+        health = maxHealth;
         deaths++;
     }
 
