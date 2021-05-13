@@ -373,12 +373,12 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("entered trigger ground");
             if(Time.time - move_time >= Time.deltaTime)
             {
-                Debug.Log("Post Frame Case");
+                //Debug.Log("Post Frame Case");
                 this.GetComponent<Collider>().isTrigger = false;
             }
             else
             {
-                Debug.Log("1st Frame Case");
+                //Debug.Log("1st Frame Case");
             }
         }
 
