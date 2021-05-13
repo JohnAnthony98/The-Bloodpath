@@ -66,11 +66,11 @@ public class DashAttack : MonoBehaviour
             {
                 if (playerDir.z == 1)
                 {
-                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = false;
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = true;
                 }
                 else
                 {
-                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = true;
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = false;
                 }
                 posOffset = new Vector3(0, -0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 90);
