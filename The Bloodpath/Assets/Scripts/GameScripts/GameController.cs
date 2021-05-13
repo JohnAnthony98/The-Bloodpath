@@ -190,7 +190,7 @@ public class GameController : MonoBehaviour
 
     public void OpenFeedBack()
     {
-        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSf2-3nbO2rYuwUjKx9g2HC7zoROMgxLUy3_KyHg6Lw44TVh_w/viewform?usp=sf_link");
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSefJ_IzizL6NZ-SU4ZFhr7u5euBhXtKDSZRSSvWfo8sPhhQpQ/viewform?usp=sf_link");
     }
 
     public bool GamePaused()
