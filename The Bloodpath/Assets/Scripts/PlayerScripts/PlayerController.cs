@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
-        walkSpeed = 0.5f;
+        walkSpeed = 1f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
@@ -288,7 +288,14 @@ public class PlayerController : MonoBehaviour
         transform.position = checkpoint;
         foreach (GameObject go in killedEnemies)
         {
-            go.GetComponent<GroundEnemy>().ResetPos();
+            if(go.name.Substring(0, 11) == "GroundEnemy")
+            {
+                go.GetComponent<GroundEnemy>().ResetPos();
+            }
+            if (go.name.Substring(0, 11) == "FlyingEnemy")
+            {
+                go.GetComponent<FlyingEnemy>().ResetPos();
+            }
             go.SetActive(true);
         }
         killedEnemies.Clear();

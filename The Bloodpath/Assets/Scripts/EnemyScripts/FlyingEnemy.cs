@@ -165,4 +165,9 @@ public class FlyingEnemy : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    public void ResetPos()
+    {
+        this.transform.position = orgin;
+    }
 }
