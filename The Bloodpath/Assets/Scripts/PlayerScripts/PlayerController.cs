@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
 
+    private SpriteRenderer sprite;
+
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
 
@@ -47,6 +49,8 @@ public class PlayerController : MonoBehaviour
         BodyFacing = new Vector2(1, 0);
         onGround = true;
 
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
+
         maxDashes = 2;
         dashesLeft = maxDashes;
         maxBlasts = 1;
@@ -70,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
-        
+
         if (moveable)
         {
             Facing();
@@ -323,6 +327,10 @@ public class PlayerController : MonoBehaviour
                 ResetMoves();
                 return;
             }
+            else
+            {
+                StartCoroutine(Flashing(0.2f));
+            }
             //move player away from enemy
             if(collision.transform.position.x > this.transform.position.x)
             {
@@ -348,6 +356,22 @@ public class PlayerController : MonoBehaviour
              ResetMoves();
              return;
 
+        }
+    }
+
+    private IEnumerator Flashing(float flashTime)
+    {
+        Color defaultColor = sprite.color;
+
+        for (int i = 0; i < 3; i++)
+        {
+            sprite.color = new Color(0, 0, 0, 0);
+
+            yield return new WaitForSeconds(flashTime);
+
+            sprite.color = defaultColor;
+
+            yield return new WaitForSeconds(flashTime);
         }
     }
 
