@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
-        walkSpeed = 1f;
+        walkSpeed = 2f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
