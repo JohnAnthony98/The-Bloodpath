@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundEnemy : MonoBehaviour
 {
-    private bool findingRightBound;
-    private bool findingLeftBound;
+    public bool findingRightBound;
+    public bool findingLeftBound;
     private bool foundGround;
     private Vector3 rightBound;
     private Vector3 leftBound;
@@ -23,6 +23,7 @@ public class GroundEnemy : MonoBehaviour
     private float timeHit;
     private float pauseTime;
     private Vector3 hitLocation;
+    private Vector3 orginPos;
 
 
     // Start is called before the first frame update
@@ -101,17 +102,6 @@ public class GroundEnemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ground"))
-        {
-            if(foundGround == false)
-            {
-                foundGround = true;
-                findingRightBound = true;
-                moveChecker = Instantiate(moveCheckerPreFab);
-                moveChecker.GetComponent<GroundEnemyMoveChecker>().SetEnemy(this.gameObject);
-                return;
-            }
-        }
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("enemy"))
         {
             SetBound();
@@ -132,6 +122,7 @@ public class GroundEnemy : MonoBehaviour
         {
             if (foundGround == false)
             {
+                orginPos = this.transform.position;
                 foundGround = true;
                 findingRightBound = true;
                 moveChecker = Instantiate(moveCheckerPreFab);
@@ -166,5 +157,10 @@ public class GroundEnemy : MonoBehaviour
     {
         Destroy(moveChecker);
         Destroy(this.gameObject);
+    }
+
+    public void ResetPos()
+    {
+        this.transform.position = orginPos;
     }
 }

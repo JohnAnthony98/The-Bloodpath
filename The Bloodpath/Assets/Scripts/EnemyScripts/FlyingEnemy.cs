@@ -61,6 +61,20 @@ public class FlyingEnemy : MonoBehaviour
         }
     }
 
+    private IEnumerator Flashing(float flashTime)
+    {
+        SpriteRenderer sprite = this.gameObject.GetComponent<SpriteRenderer>();
+        Color defaultColor = sprite.color;
+
+        sprite.color = Color.red;
+
+        yield return new WaitForSeconds(flashTime);
+
+        sprite.color = defaultColor;
+
+        yield return new WaitForSeconds(flashTime);
+    }
+
     private void Move()
     {
         if (findingBottomBound)
@@ -140,6 +154,7 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
+            StartCoroutine(Flashing(0.5f));
             if (other.name == "DashAttack(Clone)")
             {
                 health -= 1;
@@ -164,5 +179,10 @@ public class FlyingEnemy : MonoBehaviour
     private void OnDestroy()
     {
         Destroy(this.gameObject);
+    }
+
+    public void ResetPos()
+    {
+        this.transform.position = orgin;
     }
 }

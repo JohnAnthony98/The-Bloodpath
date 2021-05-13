@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 BodyFacing;
     private Vector3 checkpoint;
 
+    private SpriteRenderer sprite;
+
     private GameObject dashPreFab;
     private GameObject shotgunPreFab;
 
@@ -40,12 +42,14 @@ public class PlayerController : MonoBehaviour
         checkpoint = transform.position;
         dash_force = 15f;
         sg_force = 10f;
-        walkSpeed = 0.5f;
+        walkSpeed = 1f;
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
         BodyFacing = new Vector2(1, 0);
         onGround = true;
+
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
 
         maxDashes = 2;
         dashesLeft = maxDashes;
@@ -70,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             Respawn();
         }
-        
+
         if (moveable)
         {
             Facing();
@@ -150,6 +154,9 @@ public class PlayerController : MonoBehaviour
             move_time = Time.time;*/
             if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
             {
+                Vector3 upPos = this.transform.position;
+                upPos.y += 0.01f;
+                this.transform.position = upPos;
                 this.GetComponent<Collider>().isTrigger = true;
                 //jumping
                 if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
@@ -224,6 +231,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                Vector3 upPos = this.transform.position;
+                upPos.y += 0.01f;
+                this.transform.position = upPos;
+
                 this.GetComponent<Collider>().isTrigger = true;
                 rbody.velocity = new Vector3(0, 0, 0);
                 rbody.useGravity = false;
@@ -281,6 +292,14 @@ public class PlayerController : MonoBehaviour
         transform.position = checkpoint;
         foreach (GameObject go in killedEnemies)
         {
+            if(go.name.Substring(0, 11) == "GroundEnemy")
+            {
+                go.GetComponent<GroundEnemy>().ResetPos();
+            }
+            if (go.name.Substring(0, 11) == "FlyingEnemy")
+            {
+                go.GetComponent<FlyingEnemy>().ResetPos();
+            }
             go.SetActive(true);
         }
         killedEnemies.Clear();
@@ -308,6 +327,10 @@ public class PlayerController : MonoBehaviour
                 ResetMoves();
                 return;
             }
+            else
+            {
+                StartCoroutine(Flashing(0.2f));
+            }
             //move player away from enemy
             if(collision.transform.position.x > this.transform.position.x)
             {
@@ -333,6 +356,22 @@ public class PlayerController : MonoBehaviour
              ResetMoves();
              return;
 
+        }
+    }
+
+    private IEnumerator Flashing(float flashTime)
+    {
+        Color defaultColor = sprite.color;
+
+        for (int i = 0; i < 3; i++)
+        {
+            sprite.color = new Color(0, 0, 0, 0);
+
+            yield return new WaitForSeconds(flashTime);
+
+            sprite.color = defaultColor;
+
+            yield return new WaitForSeconds(flashTime);
         }
     }
 

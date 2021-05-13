@@ -9,7 +9,7 @@ public class GroundEnemyMoveChecker : MonoBehaviour
     private bool findingRightBound;
     private bool findingLeftBound;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         findingRightBound = true;
         findingLeftBound = false;
@@ -51,19 +51,22 @@ public class GroundEnemyMoveChecker : MonoBehaviour
     public void SetEnemy(GameObject enemy)
     {
         attatchedEnemy = enemy;
+        findingRightBound = true;
+        findingLeftBound = false;
     }
 
     public void SwapBound()
     {
-        if (findingRightBound)
+        if (findingLeftBound)
         {
-            findingRightBound = false;
-            findingLeftBound = true;
+
+            findingRightBound = true;
+            findingLeftBound = false;
         }
         else
         {
-            findingRightBound = true;
-            findingLeftBound = false;
+            findingRightBound = false;
+            findingLeftBound = true;
         }
     }
 
