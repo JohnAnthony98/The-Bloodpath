@@ -98,14 +98,14 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if ((Input.GetAxis("Horizontal") < -0.5 || Input.GetKey("a")) && moveable)
+        if ((Input.GetAxis("Horizontal") < -0.5 || Input.GetKey("left")) && moveable)
         {
             Vector3 vel = rbody.velocity;
             vel.x = 0;
             rbody.velocity = vel;
             rbody.AddForce(-1 * walkSpeed, 0, 0, ForceMode.Impulse);
         }
-        if ((Input.GetAxis("Horizontal") > 0.5 || Input.GetKey("d")) && moveable)
+        if ((Input.GetAxis("Horizontal") > 0.5 || Input.GetKey("right")) && moveable)
         {
             Vector3 vel = rbody.velocity;
             vel.x = 0;
@@ -123,13 +123,13 @@ public class PlayerController : MonoBehaviour
 
     private void Facing()
     {
-        if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
+        if (Input.GetKey("left") || Input.GetAxis("Horizontal") < -0.5)
         {
             BodyFacing.x = -1;
             BodyFacing.z = -1;
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
+        else if (Input.GetKey("right") || Input.GetAxis("Horizontal") > 0.5)
         {
             BodyFacing.x = 1;
             BodyFacing.z = 1;
@@ -172,14 +172,14 @@ public class PlayerController : MonoBehaviour
             /*Debug.Log("Dash");
             moveable = false;
             move_time = Time.time;*/
-            if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
+            if (Input.GetKey("up") || Input.GetAxis("Vertical") < -0.5)
             {
                 Vector3 upPos = this.transform.position;
                 upPos.y += 0.01f;
                 this.transform.position = upPos;
                 this.GetComponent<Collider>().isTrigger = true;
                 //jumping
-                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
+                if (Input.GetKey("left") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector3(-1, 1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
+                else if (Input.GetKey("right") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -210,7 +210,7 @@ public class PlayerController : MonoBehaviour
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
-            else if (Input.GetKey("s") || Input.GetAxis("Vertical") > 0.5 )
+            else if (Input.GetKey("down") || Input.GetAxis("Vertical") > 0.5 )
             {
                 if(onGround)
                 {
@@ -218,7 +218,7 @@ public class PlayerController : MonoBehaviour
                 }
                 this.GetComponent<Collider>().isTrigger = true;
                 //jumping
-                if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
+                if (Input.GetKey("left") || Input.GetAxis("Horizontal") < -0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
                     BodyFacing = new Vector3(-1, -1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
-                else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
+                else if (Input.GetKey("right") || Input.GetAxis("Horizontal") > 0.5)
                 {
                     rbody.velocity = new Vector3(0, 0, 0);
                     rbody.useGravity = false;
