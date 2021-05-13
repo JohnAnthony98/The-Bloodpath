@@ -99,6 +99,10 @@ public class GameController : MonoBehaviour
         pauseMenu.SetActive(false);
         paused = false;
         Time.timeScale = 1f;
+        deathCounter.SetActive(true);
+        dashCounter.SetActive(true);
+        blastCounter.SetActive(true);
+        healthCounter.SetActive(true);
     }
 
     private void PauseGame()
@@ -106,6 +110,10 @@ public class GameController : MonoBehaviour
         paused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        deathCounter.SetActive(false);
+        dashCounter.SetActive(false);
+        blastCounter.SetActive(false);
+        healthCounter.SetActive(false);
     }
 
     public void RestartLevel()
@@ -120,6 +128,13 @@ public class GameController : MonoBehaviour
         mainMenu.SetActive(true);
         youWin.SetActive(false);
         youWin.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(true);
+
+
+        deathCounter.SetActive(false);
+        dashCounter.SetActive(false);
+        blastCounter.SetActive(false);
+        healthCounter.SetActive(false);
+
         SceneManager.LoadScene(0);
     }
 
