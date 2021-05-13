@@ -96,6 +96,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if ((Input.GetAxis("Horizontal") < -0.5 || Input.GetKey("a")) && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(-1 * walkSpeed, 0, 0, ForceMode.Impulse);
+        }
+        if ((Input.GetAxis("Horizontal") > 0.5 || Input.GetKey("d")) && moveable)
+        {
+            Vector3 vel = rbody.velocity;
+            vel.x = 0;
+            rbody.velocity = vel;
+            rbody.AddForce(walkSpeed, 0, 0, ForceMode.Impulse);
+        }
+    }
+
     private void Respawn()
     {
         LoadCheckpoint();
@@ -262,21 +280,6 @@ public class PlayerController : MonoBehaviour
             BodyFacing.y = 0;
             attack = Instantiate(shotgunPreFab) as GameObject;
             blastsLeft--;
-        }
-
-        if ((Input.GetAxis("Horizontal") < -0.5 || Input.GetKey("a")) && moveable)
-        {
-            Vector3 vel = rbody.velocity;
-            vel.x = 0;
-            rbody.velocity = vel;
-            rbody.AddForce(-1 * walkSpeed, 0, 0, ForceMode.Impulse);
-        }
-        if ((Input.GetAxis("Horizontal") > 0.5 || Input.GetKey("d")) && moveable)
-        {
-            Vector3 vel = rbody.velocity;
-            vel.x = 0;
-            rbody.velocity = vel;
-            rbody.AddForce(walkSpeed, 0, 0, ForceMode.Impulse);
         }
     }
 
