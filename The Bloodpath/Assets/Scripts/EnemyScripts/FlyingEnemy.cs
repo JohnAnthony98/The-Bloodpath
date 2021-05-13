@@ -21,6 +21,9 @@ public class FlyingEnemy : MonoBehaviour
     private int health;
     private int maxHealth;
 
+    private SpriteRenderer sprite;
+    private Color defaultColor;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,9 @@ public class FlyingEnemy : MonoBehaviour
         findingBottomBound = true;
         speed = 0.03f;
         range = 1f;
+
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
+        defaultColor = sprite.color;
 
         orgin = transform.position;
         topBound = orgin;
@@ -63,9 +69,6 @@ public class FlyingEnemy : MonoBehaviour
 
     private IEnumerator Flashing(float flashTime)
     {
-        SpriteRenderer sprite = this.gameObject.GetComponent<SpriteRenderer>();
-        Color defaultColor = sprite.color;
-
         sprite.color = Color.red;
 
         yield return new WaitForSeconds(flashTime);
@@ -184,5 +187,6 @@ public class FlyingEnemy : MonoBehaviour
     public void ResetPos()
     {
         this.transform.position = orgin;
+        sprite.color = defaultColor;
     }
 }

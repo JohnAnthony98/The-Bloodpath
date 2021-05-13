@@ -12,6 +12,8 @@ public class GroundEnemy : MonoBehaviour
     private float travelTime;
     private float startTime;
     private float speed;
+    private SpriteRenderer sprite;
+    private Color defaultColor;
 
     private GameObject moveCheckerPreFab;
     private GameObject moveChecker;
@@ -28,7 +30,10 @@ public class GroundEnemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        sprite = this.gameObject.GetComponent<SpriteRenderer>();
+        defaultColor = sprite.color;
+
         foundGround = false;
         findingRightBound = false;
         findingLeftBound = false;
@@ -132,6 +137,7 @@ public class GroundEnemy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlayerAttack"))
         {
+            StartCoroutine(Flashing(0.5f));
             if(other.name == "DashAttack(Clone)")
             {
                 health -= 1;
@@ -153,6 +159,17 @@ public class GroundEnemy : MonoBehaviour
         }
     }
 
+    private IEnumerator Flashing(float flashTime)
+    {
+        sprite.color = Color.red;
+
+        yield return new WaitForSeconds(flashTime);
+
+        sprite.color = defaultColor;
+
+        yield return new WaitForSeconds(flashTime);
+    }
+
     private void OnDestroy()
     {
         Destroy(moveChecker);
@@ -162,5 +179,6 @@ public class GroundEnemy : MonoBehaviour
     public void ResetPos()
     {
         this.transform.position = orginPos;
+        sprite.color = defaultColor;
     }
 }
