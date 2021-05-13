@@ -150,6 +150,9 @@ public class PlayerController : MonoBehaviour
             move_time = Time.time;*/
             if (Input.GetKey("w") || Input.GetAxis("Vertical") < -0.5)
             {
+                Vector3 upPos = this.transform.position;
+                upPos.y += 0.01f;
+                this.transform.position = upPos;
                 this.GetComponent<Collider>().isTrigger = true;
                 //jumping
                 if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
@@ -224,6 +227,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                Vector3 upPos = this.transform.position;
+                upPos.y += 0.01f;
+                this.transform.position = upPos;
+
                 this.GetComponent<Collider>().isTrigger = true;
                 rbody.velocity = new Vector3(0, 0, 0);
                 rbody.useGravity = false;
@@ -281,6 +288,7 @@ public class PlayerController : MonoBehaviour
         transform.position = checkpoint;
         foreach (GameObject go in killedEnemies)
         {
+            go.GetComponent<GroundEnemy>().ResetPos();
             go.SetActive(true);
         }
         killedEnemies.Clear();
@@ -365,12 +373,12 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("entered trigger ground");
             if(Time.time - move_time >= Time.deltaTime)
             {
-                //Debug.Log("Post Frame Case");
+                Debug.Log("Post Frame Case");
                 this.GetComponent<Collider>().isTrigger = false;
             }
             else
             {
-                //Debug.Log("1st Frame Case");
+                Debug.Log("1st Frame Case");
             }
         }
 
