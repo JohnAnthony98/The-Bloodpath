@@ -153,6 +153,7 @@ public class GroundEnemy : MonoBehaviour
                 player.GetComponent<PlayerController>().EnemyDestroyed(this.gameObject);
                 health = maxHealth;
             }
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().ResetMoves();
             playerHit = true;
             timeHit = Time.time;
             hitLocation = transform.position;

@@ -11,29 +11,39 @@ public class DashAttack : MonoBehaviour
     private Vector3 posOffset;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         attackTime = 0.25f;
         startTime = Time.time;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 playerDir = player.GetComponent<PlayerController>().GetFacing();
+        Vector3 playerDir = player.GetComponent<PlayerController>().GetFacing();
 
         //figure out placement and direction of attack based on player direction
         if(playerDir.y == 1)//Attack upwards
         {
             if(playerDir.x == 1)//diagonal up and to the right
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 posOffset = new Vector3(0.5f, 0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 45);
             }
             else if (playerDir.x == -1)//diagonal up and to the left
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 posOffset = new Vector3(-0.5f, 0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, -45);
             }
             else //stright up
             {
+                if(playerDir.z == 1)
+                {
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = false;
+                }
+                else
+                {
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = true;
+                }
                 posOffset = new Vector3(0, 0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 90);
             }
@@ -42,29 +52,41 @@ public class DashAttack : MonoBehaviour
         {
             if (playerDir.x == 1)//diagonal down and to the right
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 posOffset = new Vector3(0.5f, -0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, -45);
             }
             else if (playerDir.x == -1)//diagonal down and to the left
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 posOffset = new Vector3(-0.5f, -0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 45);
             }
             else //stright down
             {
+                if (playerDir.z == 1)
+                {
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = false;
+                }
+                else
+                {
+                    gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = true;
+                }
                 posOffset = new Vector3(0, -0.75f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 90);
             }
         }
         else //attack to the sides
         {
-            if (playerDir.x == 1)//diagonal down and to the right
+            if (playerDir.x == 1)//to the right
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 posOffset = new Vector3(0.5f, 0f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
             }
-            else if (playerDir.x == -1)//diagonal down and to the left
+            else if (playerDir.x == -1)//to the left
             {
+                gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 posOffset = new Vector3(-0.5f, 0f, 0);
                 this.transform.eulerAngles = new Vector3(0, 0, 0);
             }

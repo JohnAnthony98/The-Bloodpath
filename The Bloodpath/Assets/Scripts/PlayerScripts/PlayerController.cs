@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private int deaths;
     private bool onGround;
     private Rigidbody rbody;
-    private Vector2 BodyFacing;
+    private Vector3 BodyFacing;
     private Vector3 checkpoint;
 
     private SpriteRenderer sprite;
@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
         moveable = true;
         move_cooldown = 0.25f;
         rbody = GetComponent<Rigidbody>();
-        BodyFacing = new Vector2(1, 0);
-        onGround = true;
+        BodyFacing = new Vector3(1, 0, 1);
+        onGround = false;
 
         sprite = this.gameObject.GetComponent<SpriteRenderer>();
 
@@ -98,8 +98,8 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
-        health = maxHealth;
         LoadCheckpoint();
+        health = maxHealth;
         deaths++;
     }
 
@@ -108,11 +108,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("a") || Input.GetAxis("Horizontal") < -0.5)
         {
             BodyFacing.x = -1;
+            BodyFacing.z = -1;
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
         {
             BodyFacing.x = 1;
+            BodyFacing.z = 1;
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
@@ -166,7 +168,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * -1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(-1, 1);
+                    BodyFacing = new Vector3(-1, 1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
@@ -176,7 +178,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * 1, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(1, 1);
+                    BodyFacing = new Vector3(1, 1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else
@@ -186,7 +188,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, dash_force, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(0, 1);
+                    BodyFacing = new Vector3(0, 1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
@@ -205,7 +207,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * -1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(-1, -1);
+                    BodyFacing = new Vector3(-1, -1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else if (Input.GetKey("d") || Input.GetAxis("Horizontal") > 0.5)
@@ -215,7 +217,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(dash_force * 1, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(1, -1);
+                    BodyFacing = new Vector3(1, -1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
                 else
@@ -225,7 +227,7 @@ public class PlayerController : MonoBehaviour
                     rbody.AddForce(0, dash_force * -1, 0, ForceMode.Impulse);
                     moveable = false;
                     move_time = Time.time;
-                    BodyFacing = new Vector2(0, -1);
+                    BodyFacing = new Vector3(0, -1, BodyFacing.x);
                     attack = Instantiate(dashPreFab) as GameObject;
                 }
             }
@@ -429,7 +431,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public Vector2 GetFacing()
+    public Vector3 GetFacing()
     {
         return BodyFacing;
     }
